@@ -1,0 +1,222 @@
+Common parameters:
+Num batches: 100 batches
+Effective capacitance: 100 F
+Computational efficiency: 100 cycles/batch
+Clock frequency: 1000000000.0 Hz
+Upload time: 3.2 s
+Download time: 2.1333333333333333 s
+Client 1
+Eio: 279720.0 J
+Pi: 13.5 J
+New client created:
+Energy per epoch = 0.15 J
+Time per epoch = 1.5s
+Energy decrease per epoch = -19.962138000000003s
+Client 2
+Eio: 279720.0 J
+Pi: 10 J
+New client created:
+Energy per epoch = 0.15 J
+Time per epoch = 1.5s
+Energy decrease per epoch = -14.712138s
+Client 3
+Eio: 279720.0 J
+Pi: 0 J
+New client created:
+Energy per epoch = 0.15 J
+Time per epoch = 1.5s
+Energy decrease per epoch = 0.287862s
+Client 4
+Eio: 205128.0 J
+Pi: 0 J
+New client created:
+Energy per epoch = 0.15 J
+Time per epoch = 1.5s
+Energy decrease per epoch = 0.25109879999999996s
+Client 5
+Eio: 117216.0 J
+Pi: 0 J
+New client created:
+Energy per epoch = 0.15 J
+Time per epoch = 1.5s
+Energy decrease per epoch = 0.25109879999999996s
+Suppose clients will train for 34.666666666666664 epochs. Lets reduce that!
+--------- ITERATION 1 ---------
+U = 971694.947064913
+L = 0
+alpha = 485847.4735324565
+Nis = [971680.947064913, 816886.8001025892, 466777.6000586224]
+rs = [0, 0, 34.666666666666664]
+Decrease U!
+--------- ITERATION 2 ---------
+R = 14.0
+U = 485847.4735324565
+L = 0
+alpha = 242923.73676622825
+Nis = [971680.947064913, 816886.8001025892, 466777.6000586224]
+rs = [0, 0, 0]
+Increase L!
+--------- ITERATION 3 ---------
+R = 14.0
+U = 485847.4735324565
+L = 242923.73676622825
+alpha = 364385.6051493424
+Nis = [971680.947064913, 816886.8001025892, 466777.6000586224]
+rs = [0, 0, 0]
+Increase L!
+--------- ITERATION 4 ---------
+R = 14.0
+U = 485847.4735324565
+L = 364385.6051493424
+alpha = 425116.53934089944
+Nis = [971680.947064913, 816886.8001025892, 466777.6000586224]
+rs = [0, 0, 0]
+Increase L!
+--------- ITERATION 5 ---------
+R = 14.0
+U = 485847.4735324565
+L = 425116.53934089944
+alpha = 455482.006436678
+Nis = [971680.947064913, 816886.8001025892, 466777.6000586224]
+rs = [0, 0, 0]
+Increase L!
+--------- ITERATION 6 ---------
+R = 14.0
+U = 485847.4735324565
+L = 455482.006436678
+alpha = 470664.7399845673
+Nis = [971680.947064913, 816886.8001025892, 466777.6000586224]
+rs = [0, 0, 34.666666666666664]
+Decrease U!
+--------- ITERATION 7 ---------
+R = 14.0
+U = 470664.7399845673
+L = 455482.006436678
+alpha = 463073.37321062264
+Nis = [971680.947064913, 816886.8001025892, 466777.6000586224]
+rs = [0, 0, 0]
+Increase L!
+--------- ITERATION 8 ---------
+R = 14.0
+U = 470664.7399845673
+L = 463073.37321062264
+alpha = 466869.056597595
+Nis = [971680.947064913, 816886.8001025892, 466777.6000586224]
+rs = [0, 0, 34.666666666666664]
+Decrease U!
+--------- ITERATION 9 ---------
+R = 14.0
+U = 466869.056597595
+L = 463073.37321062264
+alpha = 464971.2149041088
+Nis = [971680.947064913, 816886.8001025892, 466777.6000586224]
+rs = [0, 0, 0]
+Increase L!
+--------- ITERATION 10 ---------
+R = 14.0
+U = 466869.056597595
+L = 464971.2149041088
+alpha = 465920.1357508519
+Nis = [971680.947064913, 816886.8001025892, 466777.6000586224]
+rs = [0, 0, 0]
+Increase L!
+--------- ITERATION 11 ---------
+R = 14.0
+U = 466869.056597595
+L = 465920.1357508519
+alpha = 466394.59617422346
+Nis = [971680.947064913, 816886.8001025892, 466777.6000586224]
+rs = [0, 0, 0]
+Increase L!
+--------- ITERATION 12 ---------
+R = 14.0
+U = 466869.056597595
+L = 466394.59617422346
+alpha = 466631.8263859092
+Nis = [971680.947064913, 816886.8001025892, 466777.6000586224]
+rs = [0, 0, 0]
+Increase L!
+--------- ITERATION 13 ---------
+R = 14.0
+U = 466869.056597595
+L = 466631.8263859092
+alpha = 466750.4414917521
+Nis = [971680.947064913, 816886.8001025892, 466777.6000586224]
+rs = [0, 0, 0]
+Increase L!
+--------- ITERATION 14 ---------
+R = 14.0
+U = 466869.056597595
+L = 466750.4414917521
+alpha = 466809.7490446735
+Nis = [971680.947064913, 816886.8001025892, 466777.6000586224]
+rs = [0, 0, 32.148986051091924]
+Decrease U!
+--------- ITERATION 15 ---------
+R = 14.0
+U = 466809.7490446735
+L = 466750.4414917521
+alpha = 466780.09526821284
+Nis = [971680.947064913, 816886.8001025892, 466777.6000586224]
+rs = [0, 0, 2.4952095904154703]
+Increase L!
+--------- ITERATION 16 ---------
+R = 14.0
+U = 466809.7490446735
+L = 466780.09526821284
+alpha = 466794.9221564432
+Nis = [971680.947064913, 816886.8001025892, 466777.6000586224]
+rs = [0, 0, 17.322097820753697]
+Decrease U!
+--------- ITERATION 17 ---------
+R = 14.0
+U = 466794.9221564432
+L = 466780.09526821284
+alpha = 466787.50871232804
+Nis = [971680.947064913, 816886.8001025892, 466777.6000586224]
+rs = [0, 0, 9.908653705613688]
+Increase L!
+--------- ITERATION 18 ---------
+R = 14.0
+U = 466794.9221564432
+L = 466787.50871232804
+alpha = 466791.2154343856
+Nis = [971680.947064913, 816886.8001025892, 466777.6000586224]
+rs = [0, 0, 13.615375763154589]
+Increase L!
+---------------
+Client 1
+Num epochs: 34.666666666666664
+Reduced num epochs: 0
+Utility: 0.0
+Time: 57.333333333333336 s
+Energy before: 279720.0 J
+Energy consumed by training: 5.199999999999999 J
+Energy consumed base: 4.779216 J
+Energy recharged: 0.0 J
+Total energy variation: -9.979216 J
+Energy after: 279710.020784 J
+---------------
+Client 2
+Num epochs: 34.666666666666664
+Reduced num epochs: 0
+Utility: 0.0
+Time: 57.333333333333336 s
+Energy before: 205128.0 J
+Energy consumed by training: 5.199999999999999 J
+Energy consumed base: 3.504758399999999 J
+Energy recharged: 0.0 J
+Total energy variation: -8.704758399999998 J
+Energy after: 205119.2952416 J
+---------------
+Client 3
+Num epochs: 21.051290903512076
+Reduced num epochs: 13.615375763154589
+Utility: 1.266769511846683e-05
+Time: 36.91026968860145 s
+Energy before: 117216.0 J
+Energy consumed by training: 3.1576936355268113 J
+Energy consumed base: 2.1282602487959865 J
+Energy recharged: 0.0 J
+Total energy variation: -5.285953884322797 J
+Energy after: 117210.71404611568 J

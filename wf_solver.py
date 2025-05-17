@@ -15,17 +15,19 @@ class WaterFillingSolver:
         self.e = thresh
 
         self.csi = self._compute_ceil_num_epochs()
-        self.R =  self.num_clients * self.csi - num_min_epochs
+        print(f"Suppose clients will train for {self.csi} epochs. Lets reduce that!")
+        self.R = self.num_clients * self.csi  - num_min_epochs
 
         self._compute_Nis()
         self.U = (self.R + sum(self.Ni_list)) / self.num_clients
+        self.U = self.R + max(self.Ni_list)
         self.L = 0 #-self.U
 
     def _compute_Nis(self):
         self.Ni_list = [(client.Eio - self.csi * client.Ki) / client.Ki for client in self.clients_list]
             
     def _compute_ceil_num_epochs(self):
-        return max([floor(self.time_budget/client.tau_i) for client in self.clients_list])
+        return max([floor(self.time_budget/client.tau_i) -client.ui-client.di for client in self.clients_list])
 
     def _update_clients(self):
         self.new_clients_list = []
@@ -55,12 +57,22 @@ class WaterFillingSolver:
         self.t_list = [client.Ti for client in self.clients_list]
         if sum(self.r_list) > self.R: #or self.time_budget > max(self.t_list):
             self.U = alfa
+            print("Decrease U!")
         else:
             self.L = alfa
+            print("Increase L!")
+
 
     def solve(self):
+        i = 1
+        print(f"--------- ITERATION {i} ---------")
         self._run_iteration() 
-        while self.R - sum(self.r_list) > self.e and (self.U - self.L) / self.U > 0.01:
+        while abs(self.R - sum(self.r_list)) > self.e: # and (self.U - self.L) > 1:
+            i += 1
+            if i >= 100:
+                break
+            print(f"--------- ITERATION {i} ---------")
+            print(f"R = {self.R}")
             self._run_iteration()
         self._report()
 

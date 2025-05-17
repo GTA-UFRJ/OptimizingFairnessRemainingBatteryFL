@@ -1,6 +1,6 @@
 from wf_solver import WaterFillingSolver
 from client import Client
-from cases.case2 import *
+from cases.case3 import *
 
 print("Common parameters:")
 print(f"Num batches: {Bi} batches")

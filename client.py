@@ -26,7 +26,7 @@ class Client:
         print("New client created:")
         print(f"Energy per epoch = {self.epsilon_i} J")
         print(f"Time per epoch = {self.tau_i}s")
-        print(f"Energy decrease per epoch = {self.Ki}s")
+        print(f"Energy decrease per epoch (Ki) = {self.Ki}s")
 
     def _setters(self,ri,Ui,Ti,csi):
         self.ri = ri

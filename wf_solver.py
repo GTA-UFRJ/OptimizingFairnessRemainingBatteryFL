@@ -21,7 +21,7 @@ class WaterFillingSolver:
         self._compute_Nis()
         self.U = (self.R + sum(self.Ni_list)) / self.num_clients
         self.U = self.R + max(self.Ni_list)
-        self.L = 0 #-self.U
+        self.L = min(self.Ni_list) #-self.U
 
     def _compute_Nis(self):
         self.Ni_list = [(client.Eio - self.csi * client.Ki) / client.Ki for client in self.clients_list]
@@ -39,8 +39,11 @@ class WaterFillingSolver:
     def _run_iteration(self):
         alfa = (self.U + self.L)/2
         self.r_list = []
-        for Ni in self.Ni_list:
-            ri = alfa - Ni
+        for i, Ni in enumerate(self.Ni_list):
+            if self.clients_list[i].Ki < 0:
+                ri = 0
+            else:
+                ri = alfa - Ni
             if ri > 0 and ri <= self.csi:
                 self.r_list.append(ri)
             elif ri > 0  and ri > self.csi:

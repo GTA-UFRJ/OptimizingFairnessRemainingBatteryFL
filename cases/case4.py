@@ -17,8 +17,8 @@ clients_parameters = [
         "charging_power": 1*5*2 # 5V 2A
     },
     {
-        "battery_mAh":3100,
-        "starting_soc":0.7,
+        "battery_mAh":3000,
+        "starting_soc":0.8,
         "charging_power": 1*9*1.5 
     }
 ]

@@ -1,4 +1,5 @@
 from math import floor, ceil
+from numpy import math
 
 class WaterFillingSolver:
     def __init__(
@@ -27,13 +28,17 @@ class WaterFillingSolver:
         # Suppose the client trained for the maximum number of epochs (ri = 0)
         # What is the number of epochs the client must train do drain its
         # remaining energy to zero?
-        self.Ni_list = [(client.Eio - self.csi * client.Ki) / client.Ki for client in self.clients_list]
+        self.Ni_list = [client._compute_Ni(self.csi) for client in self.clients_list]
             
     def _compute_ceil_num_epochs(self):
         return max([floor((self.time_budget-client.ui-client.di)/client.tau_i) for client in self.clients_list])
 
     def _update_clients(self):
         self.new_clients_list = []
+
+        # DEBUG !!!
+        #self.r_list = [11.22444691113742, 36, 0]
+        
         for client, r in zip(self.clients_list, self.r_list):
             client.compute(r, self.csi) 
             self.new_clients_list.append(client)
@@ -44,10 +49,11 @@ class WaterFillingSolver:
         self.r_list = []
         for i, Ni in enumerate(self.Ni_list):
             # If there is a positive Ni, do not reduce num of epochs for negative Nis
-            if self.clients_list[i].Ki < 0 and len([Ni for Ni in self.Ni_list if Ni>=0]) > 0:
-                ri = 0
-            else:
-                ri = alfa - Ni
+            #if self.clients_list[i].Ki < 0 and len([Ni for Ni in self.Ni_list if Ni>=0]) > 0:
+            #    ri = 0
+            #else:
+            #    ri = alfa - Ni
+            ri = alfa - Ni
             if ri > 0 and ri <= self.csi:
                 self.r_list.append(ri)
             elif ri > 0  and ri > self.csi:
@@ -93,8 +99,11 @@ class WaterFillingSolver:
         self._report()
 
     def _report(self):
+        log_energy = 0
         for i, client in enumerate(self.clients_list):
             print(f"---------------")
             print(f"Client {i+1}")
             client.report()
+            log_energy += math.log10(client.Ei)
+        print(f"TOTAL FAIRNESS: {1/log_energy}")
         

@@ -20,7 +20,7 @@ for i, client_parameters in enumerate(clients_parameters):
     Pi = client_parameters["charging_power"]
     print(f"Eio: {Eio} J")
     print(f"Pi: {Pi} J")
-    client = Client(Eio, Bi, gamma_i, ci, fi, P_down_avg, Pi, ui, di)
+    client = Client(Eio, Bi, gamma_i, ci, fi, P_down_avg, Pi, time_budget, ui, di)
     clients_list.append(client)
 
 problem = WaterFillingSolver(

@@ -1,0 +1,185 @@
+Common parameters:
+Num batches: 100 batches
+Effective capacitance: 1e-28 F
+Computational efficiency: 15000000.0 cycles/batch
+Clock frequency: 1000000000.0 Hz
+Upload time: 3.2 s
+Download time: 2.1333333333333333 s
+[{'battery_mAh': 3000, 'starting_soc': 0.7, 'charging_power': 13.5}, {'battery_mAh': 3000, 'starting_soc': 0.7, 'charging_power': 10}, {'battery_mAh': 3000, 'starting_soc': 0.8, 'charging_power': 13.5}]
+Client 1
+Eio: 279720.0 J
+Pi: 13.5 J
+New client created:
+Energy per epoch = 0.15 J
+Time per epoch = 1.5s
+Client 2
+Eio: 279720.0 J
+Pi: 10 J
+New client created:
+Energy per epoch = 0.15 J
+Time per epoch = 1.5s
+Client 3
+Eio: 319680.0 J
+Pi: 13.5 J
+New client created:
+Energy per epoch = 0.15 J
+Time per epoch = 1.5s
+Suppose clients will train for 36 epochs. Lets reduce that!
+Starting r values: [0, 0, 0]
+--------- ITERATION 1 ---------
+R = 48
+U = 2136575.2368
+L = 1868727.2367999998
+alpha = 2002651.2368
+Nis = [1870127.2367999998, 1868727.2367999998, 2136527.2368]
+rs = [36, 36, 0]
+Decrease U!
+--------- ITERATION 2 ---------
+U = 2002651.2368
+L = 1868727.2367999998
+alpha = 1935689.2368
+Nis = [1870127.2367999998, 1868727.2367999998, 2136527.2368]
+rs = [36, 36, 0]
+Decrease U!
+--------- ITERATION 3 ---------
+U = 1935689.2368
+L = 1868727.2367999998
+alpha = 1902208.2368
+Nis = [1870127.2367999998, 1868727.2367999998, 2136527.2368]
+rs = [36, 36, 0]
+Decrease U!
+--------- ITERATION 4 ---------
+U = 1902208.2368
+L = 1868727.2367999998
+alpha = 1885467.7368
+Nis = [1870127.2367999998, 1868727.2367999998, 2136527.2368]
+rs = [36, 36, 0]
+Decrease U!
+--------- ITERATION 5 ---------
+U = 1885467.7368
+L = 1868727.2367999998
+alpha = 1877097.4868
+Nis = [1870127.2367999998, 1868727.2367999998, 2136527.2368]
+rs = [36, 36, 0]
+Decrease U!
+--------- ITERATION 6 ---------
+U = 1877097.4868
+L = 1868727.2367999998
+alpha = 1872912.3618
+Nis = [1870127.2367999998, 1868727.2367999998, 2136527.2368]
+rs = [36, 36, 0]
+Decrease U!
+--------- ITERATION 7 ---------
+U = 1872912.3618
+L = 1868727.2367999998
+alpha = 1870819.7993
+Nis = [1870127.2367999998, 1868727.2367999998, 2136527.2368]
+rs = [36, 36, 0]
+Decrease U!
+--------- ITERATION 8 ---------
+U = 1870819.7993
+L = 1868727.2367999998
+alpha = 1869773.51805
+Nis = [1870127.2367999998, 1868727.2367999998, 2136527.2368]
+rs = [0, 36, 0]
+Increase L!
+--------- ITERATION 9 ---------
+U = 1870819.7993
+L = 1869773.51805
+alpha = 1870296.658675
+Nis = [1870127.2367999998, 1868727.2367999998, 2136527.2368]
+rs = [36, 36, 0]
+Decrease U!
+--------- ITERATION 10 ---------
+U = 1870296.658675
+L = 1869773.51805
+alpha = 1870035.0883625
+Nis = [1870127.2367999998, 1868727.2367999998, 2136527.2368]
+rs = [0, 36, 0]
+Increase L!
+--------- ITERATION 11 ---------
+U = 1870296.658675
+L = 1870035.0883625
+alpha = 1870165.87351875
+Nis = [1870127.2367999998, 1868727.2367999998, 2136527.2368]
+rs = [36, 36, 0]
+Decrease U!
+--------- ITERATION 12 ---------
+U = 1870165.87351875
+L = 1870035.0883625
+alpha = 1870100.480940625
+Nis = [1870127.2367999998, 1868727.2367999998, 2136527.2368]
+rs = [0, 36, 0]
+Increase L!
+--------- ITERATION 13 ---------
+U = 1870165.87351875
+L = 1870100.480940625
+alpha = 1870133.1772296876
+Nis = [1870127.2367999998, 1868727.2367999998, 2136527.2368]
+rs = [5.940429687732831, 36, 0]
+Increase L!
+--------- ITERATION 14 ---------
+U = 1870165.87351875
+L = 1870133.1772296876
+alpha = 1870149.5253742188
+Nis = [1870127.2367999998, 1868727.2367999998, 2136527.2368]
+rs = [22.28857421898283, 36, 0]
+Decrease U!
+--------- ITERATION 15 ---------
+U = 1870149.5253742188
+L = 1870133.1772296876
+alpha = 1870141.3513019532
+Nis = [1870127.2367999998, 1868727.2367999998, 2136527.2368]
+rs = [14.11450195335783, 36, 0]
+Decrease U!
+--------- ITERATION 16 ---------
+U = 1870141.3513019532
+L = 1870133.1772296876
+alpha = 1870137.2642658204
+Nis = [1870127.2367999998, 1868727.2367999998, 2136527.2368]
+rs = [10.02746582054533, 36, 0]
+Increase L!
+--------- ITERATION 17 ---------
+U = 1870141.3513019532
+L = 1870137.2642658204
+alpha = 1870139.3077838868
+Nis = [1870127.2367999998, 1868727.2367999998, 2136527.2368]
+rs = [12.07098388695158, 36, 0]
+Decrease U!
+---------------
+Client 1
+Num epochs: 23.92901611304842
+Reduced num epochs: 12.07098388695158
+Utility: 2.8032021947018153e-06
+Time: 41.226857502905965 s
+Energy before: 279720.0 J
+Energy consumed by training: 3.589352416957263 J
+Energy consumed base: 5.51448 J
+Energy recharged: 810.0 J
+Total energy variation: 800.8961675830427 J
+Energy after: 280520.89616758307 J
+---------------
+Client 2
+Num epochs: 0
+Reduced num epochs: 36
+Utility: 8.366363183800336e-06
+Time: 5.333333333333336 s
+Energy before: 279720.0 J
+Energy consumed by training: 0.0 J
+Energy consumed base: 5.51448 J
+Energy recharged: 600 J
+Total energy variation: 594.48552 J
+Energy after: 280314.48552 J
+---------------
+Client 3
+Num epochs: 36
+Reduced num epochs: 0
+Utility: 0.0
+Time: 59.333333333333336 s
+Energy before: 319680.0 J
+Energy consumed by training: 5.3999999999999995 J
+Energy consumed base: 5.51448 J
+Energy recharged: 810.0 J
+Total energy variation: 799.08552 J
+Energy after: 320479.08552 J
+TOTAL FAIRNESS: 0.06097036611398295

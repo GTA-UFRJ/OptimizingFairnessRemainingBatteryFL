@@ -1,5 +1,6 @@
 from math import floor, ceil
 from numpy import math
+from time import time
 
 class WaterFillingSolver:
     def __init__(
@@ -85,6 +86,7 @@ class WaterFillingSolver:
         return
 
     def solve(self):
+        start_time = time()
         self._bootstraping_for_time_constrain()
         i = 1
         print(f"--------- ITERATION {i} ---------")
@@ -96,14 +98,23 @@ class WaterFillingSolver:
                 break
             print(f"--------- ITERATION {i} ---------")
             self._run_iteration()
+        self.elapsed_time = time()-start_time
         self._report()
 
     def _report(self):
-        log_energy = 0
+        self.log_energy = 0
+        self.energy = 0
         for i, client in enumerate(self.clients_list):
             print(f"---------------")
             print(f"Client {i+1}")
             client.report()
-            log_energy += math.log10(client.Ei)
-        print(f"TOTAL FAIRNESS: {1/log_energy}")
+            self.log_energy += math.log10(client.Ei)
+            self.energy += client.Ei
+        print(f"TOTAL ENERGY: {1/self.energy}")
+        print(f"TOTAL FAIRNESS: {1/self.log_energy}")
         
+        top = max([client.Ei for client in self.clients_list])
+        self.gap = sum([1 - client.Ei/top for client in self.clients_list])/self.num_clients
+        print(f"ENERGY GAP TO MAX: {self.gap}")
+
+        print(f"ELAPSED TIME: {self.elapsed_time}")

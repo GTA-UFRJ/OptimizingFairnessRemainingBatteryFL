@@ -1,0 +1,13 @@
+% First optimization problem
+$
+\max_{e} \quad & \sum_{i=1}^{I} \log E_i\\
+\textrm{s.t.}\quad & \sum_{i=1}^{I} e_i\ge \delta, \\
+\quad & T_i+u_i+d_i\le T, & \forall i\in \left[ 1,I \right] \\
+\quad & e_i\ge 0, & \forall i\in \left[ 1,I \right]
+$
+% Final optimization problem
+$
+\max_{r} \quad & \sum_{i=1}^{I} \log \left( 1+\frac{r_i}{N_i} \right)\\
+\textrm{s.t.}\quad & \sum_{i=1}^{I} r_i= R, \\
+\quad & r_i\ge 0, & \forall i\in \left[ 1,I \right]
+$

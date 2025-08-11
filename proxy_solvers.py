@@ -81,5 +81,3 @@ class UniformSolver(Solver):
 
         self._report()
 
-
-

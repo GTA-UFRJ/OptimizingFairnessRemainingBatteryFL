@@ -1,16 +1,31 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
 # Use your custom style
 plt.style.use('~/guiaraujo.mplstyle')
 
 solvers = ["WF","Uniform rounds","Prop. energy","Prop. time"]
-times_soc_8_to_10 = [4222,174]
-times_soc_8_to_10_err = [88, 3]
-times_soc_10_to_40 = [3470, 164]
-times_soc_10_to_40_err = [52, 3.6]
+times_soc_10_to_40 = [3470, 164, 0, 0]
+times_soc_10_to_40_err = [52, 3.6, 0, 0]
 
-x = range(len(solvers))
+x = np.arange(len(solvers))
 
 fig, ax = plt.subplots(figsize=(12,9))
 
-ax.bar(x, )
+# 10 to 40
+rects = ax.bar(
+    x, 
+    times_soc_10_to_40, 
+    yerr=times_soc_10_to_40_err,
+    width=0.5, 
+    label="SoC 10-40%")
+
+ax.set_xticks(x)
+ax.set_xticklabels(solvers)
+ax.set_xlabel("Method")
+ax.set_ylabel("Solving time (microseconds)")
+#ax.set_ylim(4000,5000)
+
+plt.tight_layout()
+plt.savefig("plots/solver_time.png", dpi=300)
+plt.close()

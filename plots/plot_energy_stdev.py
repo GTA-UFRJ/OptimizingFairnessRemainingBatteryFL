@@ -8,7 +8,6 @@ solvers = ["WF","Uniform rounds","Prop. energy","Prop. time"]
 stdev_soc_10_to_40 = [4464,4713,0,0]
 stdev_soc_10_to_40_err = [68, 3,0,0]
 
-
 x = np.arange(len(solvers))
 
 fig, ax = plt.subplots(figsize=(12,9))

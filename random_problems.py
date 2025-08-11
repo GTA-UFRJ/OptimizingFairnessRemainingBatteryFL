@@ -15,7 +15,7 @@ def generate_clients_for_all_executions(num_executions, num_clients, max_time):
         u = d = 4*8/np.random.randint(40,60,size=num_clients)
         f = 1e8*np.random.randint(28,32,size=num_clients)
         Emax = np.random.randint(1900,2200,size=num_clients) * 10e-3 * 3600 * 3.7
-        Eo =  Emax/100 * np.random.randint(8,10,size=num_clients)
+        Eo =  Emax/100 * np.random.randint(10,40,size=num_clients)
         P_down_avg= 0.0000001*Emax
 
         #max_time = np.random.randint(60,120)
@@ -100,13 +100,13 @@ if __name__ == "__main__":
         log = (sys.argv[2] == '1')
     else:
         log = True
-    num_executions = 100
+    num_executions = 200
 
-    max_time = 60
+    max_time = 25
     min_epochs = num_clients*9
 
     clients_for_each_run = generate_clients_for_all_executions(num_executions, num_clients, max_time)
 
-    run_wf(clients_for_each_run, min_epochs, max_time)
+    run_wf(clients_for_each_run.copy(), min_epochs, max_time)
 
-    run_uniform(clients_for_each_run, min_epochs, max_time)
+    run_uniform(clients_for_each_run.copy(), min_epochs, max_time)

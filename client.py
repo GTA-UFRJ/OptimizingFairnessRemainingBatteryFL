@@ -1,5 +1,10 @@
 import numpy as np
 
+def _print(text):
+    global log
+    if log:
+        print(text)
+
 class Client:
     def __init__(
         self,
@@ -13,6 +18,7 @@ class Client:
         max_time:float,     # max time
         ui:float,           # upload time
         di:float,           # download time
+        is_log_active=True
     ) -> None:
         self.Eio = Eio
         self.P_down_avg = P_down_avg
@@ -20,15 +26,18 @@ class Client:
         self.ui = ui
         self.di = di
         self.max_time = max_time
+        
+        global log
+        log = is_log_active
 
         self.epsilon_i = Bi*ci*gamma_i*fi*fi # energy per epoch
         self.tau_i = Bi*ci/fi # time per epoch (bacthes * cycles/batch / cycles/sec = sec)
         #self.Ki = self.epsilon_i + self.tau_i * (self.P_down_avg - self.Pi) # energy decreasse per epoch
 
-        print("New client created:")
-        print(f"Energy per epoch = {self.epsilon_i} J")
-        print(f"Time per epoch = {self.tau_i}s")
-        #print(f"Energy decrease per epoch (Ki) = {self.Ki}s")
+        _print("New client created:")
+        _print(f"Energy per epoch = {self.epsilon_i} J")
+        _print(f"Time per epoch = {self.tau_i}s")
+        #_print(f"Energy decrease per epoch (Ki) = {self.Ki}s")
 
     def _setters(self,ri,Ui,Ti,csi):
         self.ri = ri
@@ -58,24 +67,24 @@ class Client:
         self._setters(ri,Ui,Ti,csi)
 
     def report(self):
-        print(f"Num epochs: {self.num_epochs}")
-        print(f"Reduced num epochs: {self.ri}")
-        print(f"Utility: {self.Ui}")
-        print(f"Time: {self.Ti} s")
-        print(f"Energy before: {self.Eio} J")
-        print(f"Energy consumed by training: {self.energy_consumed_training} J")
-        print(f"Energy consumed base: {self.energy_consumed_base} J")
-        print(f"Energy recharged: {self.energy_recharged} J")
-        print(f"Total energy variation: {self.energy_variation} J")
-        print(f"Energy after: {self.Ei} J")
+        _print(f"Num epochs: {self.num_epochs}")
+        _print(f"Reduced num epochs: {self.ri}")
+        _print(f"Utility: {self.Ui}")
+        _print(f"Time: {self.Ti} s")
+        _print(f"Energy before: {self.Eio} J")
+        _print(f"Energy consumed by training: {self.energy_consumed_training} J")
+        _print(f"Energy consumed base: {self.energy_consumed_base} J")
+        _print(f"Energy recharged: {self.energy_recharged} J")
+        _print(f"Total energy variation: {self.energy_variation} J")
+        _print(f"Energy after: {self.Ei} J")
 
 if __name__ == "__main__":
 
     Emax = 3000 * 10e-3 * 3600 * 3.7 
-    print(f"Emax = {Emax} J")
+    _print(f"Emax = {Emax} J")
     # mAh * 10e-3 A/mA * 3600 s/h * V = VAs = Ws = J
 
-    print("-----------------------")
+    _print("-----------------------")
     client = Client(
         Eio=0.9*Emax, # 90% SoC battery level
         Bi=100,
@@ -88,12 +97,12 @@ if __name__ == "__main__":
         ui=4*8/10, # sending a yolo nano (4MB) in a LTE 10Mbps upload link
         di=4*8/15 # sending a yolo nano (4MB) in a LTE 15Mbps download link
     )
-    print("Client while charging")
+    _print("Client while charging")
     client.compute(30,50)
     client.report()
 
 
-    print("-----------------------")
+    _print("-----------------------")
     client = Client(
             Eio=0.9*Emax, # 90% SoC battery level
             Bi=100,
@@ -106,6 +115,6 @@ if __name__ == "__main__":
             ui=4*8/10, # sending a yolo nano (4MB) in a LTE 10Mbps upload link
             di=4*8/15 # sending a yolo nano (4MB) in a LTE 15Mbps download link
         )
-    print("Client without charging")
+    _print("Client without charging")
     client.compute(30,50)
     client.report()

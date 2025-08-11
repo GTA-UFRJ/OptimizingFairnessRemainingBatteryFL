@@ -1,0 +1,66 @@
+Common parameters:
+Num batches: 100 batches
+Effective capacitance: 1e-28 F
+Computational efficiency: 15000000.0 cycles/batch
+Clock frequency: 1000000000.0 Hz
+Upload time: 3.2 s
+Download time: 2.1333333333333333 s
+[{'battery_mAh': 3000, 'starting_soc': 0.7, 'charging_power': 13.5}, {'battery_mAh': 3000, 'starting_soc': 0.7, 'charging_power': 10}, {'battery_mAh': 3000, 'starting_soc': 0.8, 'charging_power': 13.5}]
+Client 1
+Eio: 279720.0 J
+Pi: 13.5 J
+New client created:
+Energy per epoch = 0.15 J
+Time per epoch = 1.5s
+Client 2
+Eio: 279720.0 J
+Pi: 10 J
+New client created:
+Energy per epoch = 0.15 J
+Time per epoch = 1.5s
+Client 3
+Eio: 319680.0 J
+Pi: 13.5 J
+New client created:
+Energy per epoch = 0.15 J
+Time per epoch = 1.5s
+---------------
+Client 1
+Num epochs: 20.0
+Reduced num epochs: 16.0
+Utility: 3.715619904762237e-06
+Time: 35.333333333333336 s
+Energy before: 279720.0 J
+Energy consumed by training: 3.0 J
+Energy consumed base: 5.51448 J
+Energy recharged: 810.0 J
+Total energy variation: 801.48552 J
+Energy after: 280521.48552 J
+---------------
+Client 2
+Num epochs: 20.0
+Reduced num epochs: 16.0
+Utility: 3.7184035350253043e-06
+Time: 35.333333333333336 s
+Energy before: 279720.0 J
+Energy consumed by training: 3.0 J
+Energy consumed base: 5.51448 J
+Energy recharged: 600 J
+Total energy variation: 591.48552 J
+Energy after: 280311.48552 J
+---------------
+Client 3
+Num epochs: 20.0
+Reduced num epochs: 16.0
+Utility: 3.252327221525106e-06
+Time: 35.333333333333336 s
+Energy before: 319680.0 J
+Energy consumed by training: 3.0 J
+Energy consumed base: 5.51448 J
+Energy recharged: 810.0 J
+Total energy variation: 801.48552 J
+Energy after: 320481.48552 J
+TOTAL ENERGY: 881314.45656
+TOTAL FAIRNESS: 16.401409968061216
+ENERGY GAP TO MAX: 0.08334334807722654
+ELAPSED TIME: 1.71661376953125e-05

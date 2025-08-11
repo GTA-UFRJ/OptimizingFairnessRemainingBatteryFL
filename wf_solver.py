@@ -1,6 +1,12 @@
 from math import floor, ceil
 from numpy import math
 from time import time
+from scipy import stats
+
+def _print(text):
+    global log
+    if log:
+        print(text)
 
 class WaterFillingSolver:
     def __init__(
@@ -8,15 +14,19 @@ class WaterFillingSolver:
         clients_list:list,
         num_min_epochs:int,
         time_budget:float,
-        thresh:int=1) -> None:
+        thresh:int=1,
+        is_log_active=True) -> None:
         
         self.clients_list = clients_list
         self.num_clients = len(clients_list)
         self.time_budget = time_budget        
         self.e = thresh
 
+        global log
+        log = is_log_active
+
         self.csi = self._compute_ceil_num_epochs()
-        print(f"Suppose clients will train for {self.csi} epochs. Lets reduce that!")
+        _print(f"Suppose clients will train for {self.csi} epochs. Lets reduce that!")
         self.R = self.num_clients * self.csi  - num_min_epochs
 
         self._compute_Nis()
@@ -62,26 +72,26 @@ class WaterFillingSolver:
             else:
                 self.r_list.append(0)
 
-        print(f"U = {self.U}")
-        print(f"L = {self.L}")
-        print(f"alpha = {alfa}")
-        print(f"Nis = {self.Ni_list}")
-        print(f"rs = {self.r_list}")
+        _print(f"U = {self.U}")
+        _print(f"L = {self.L}")
+        _print(f"alpha = {alfa}")
+        _print(f"Nis = {self.Ni_list}")
+        _print(f"rs = {self.r_list}")
         self._update_clients()
         self.t_list = [client.Ti for client in self.clients_list]
         if sum(self.r_list) > self.R: #or self.time_budget > max(self.t_list):
             self.U = alfa
-            print("Decrease U!")
+            _print("Decrease U!")
         else:
             self.L = alfa
-            print("Increase L!")
+            _print("Increase L!")
 
 
     def _bootstraping_for_time_constrain(self):
         # max num of rounds each client can train without surpassing time budget
         ns = [floor((self.time_budget-client.ui-client.di)/client.tau_i) for client in self.clients_list]
         self.r_list = [ceil(self.csi - n) for n in ns]
-        print(f"Starting r values: {self.r_list}") 
+        _print(f"Starting r values: {self.r_list}") 
         self._update_clients()
         return
 
@@ -89,14 +99,14 @@ class WaterFillingSolver:
         start_time = time()
         self._bootstraping_for_time_constrain()
         i = 1
-        print(f"--------- ITERATION {i} ---------")
-        print(f"R = {self.R}")
+        _print(f"--------- ITERATION {i} ---------")
+        _print(f"R = {self.R}")
         self._run_iteration() 
         while abs(self.R - sum(self.r_list)) > self.e: # and (self.U - self.L) > 1:
             i += 1
             if i >= 100:
                 break
-            print(f"--------- ITERATION {i} ---------")
+            _print(f"--------- ITERATION {i} ---------")
             self._run_iteration()
         self.elapsed_time = time()-start_time
         self._report()
@@ -104,17 +114,25 @@ class WaterFillingSolver:
     def _report(self):
         self.log_energy = 0
         self.energy = 0
+        self.time = 0
         for i, client in enumerate(self.clients_list):
-            print(f"---------------")
-            print(f"Client {i+1}")
+            _print(f"---------------")
+            _print(f"Client {i+1}")
             client.report()
             self.log_energy += math.log10(client.Ei)
             self.energy += client.Ei
-        print(f"TOTAL ENERGY: {1/self.energy}")
-        print(f"TOTAL FAIRNESS: {1/self.log_energy}")
+            if client.Ti > self.time:
+                self.time = client.Ti
+        _print(f"TOTAL ENERGY: {self.energy}")
+        _print(f"TOTAL FAIRNESS: {self.log_energy}")
         
         top = max([client.Ei for client in self.clients_list])
         self.gap = sum([1 - client.Ei/top for client in self.clients_list])/self.num_clients
-        print(f"ENERGY GAP TO MAX: {self.gap}")
+        _print(f"ENERGY GAP TO MAX: {self.gap}")
 
-        print(f"ELAPSED TIME: {self.elapsed_time}")
+        E_list = [client.Ei for client in self.clients_list]
+        self.E_list = E_list
+        self.stdev = stats.sem(E_list) * stats.t.ppf((1+0.95)/2., len(E_list)-1)
+        _print(f"ENERGY STANDARD DEVIATION: {self.stdev}")
+
+        _print(f"ELAPSED TIME: {self.elapsed_time}")

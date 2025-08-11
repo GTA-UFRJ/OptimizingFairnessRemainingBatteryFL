@@ -15,7 +15,7 @@ def generate_clients_for_all_executions(num_executions, num_clients, max_time):
         u = d = 4*8/np.random.randint(40,60,size=num_clients)
         f = 1e8*np.random.randint(28,32,size=num_clients)
         Emax = np.random.randint(1900,2200,size=num_clients) * 10e-3 * 3600 * 3.7
-        Eo =  Emax/100 * np.random.randint(10,20,size=num_clients)
+        Eo =  Emax/100 * np.random.randint(8,10,size=num_clients)
         P_down_avg= 0.0000001*Emax
 
         #max_time = np.random.randint(60,120)
@@ -32,6 +32,7 @@ def run_wf(clients_for_each_run, min_epochs, max_time):
     num_executions = len(clients_for_each_run)
     durations = np.zeros(num_executions)
     energies = np.zeros(num_executions)
+    final_to_initial_energies = np.zeros(num_executions)
     utilities = np.zeros(num_executions)
     gaps = np.zeros(num_executions)
     times = np.zeros(num_executions)
@@ -44,6 +45,7 @@ def run_wf(clients_for_each_run, min_epochs, max_time):
 
         durations[i] = p.elapsed_time
         energies[i] = p.energy/num_clients
+        final_to_initial_energies[i] = 1-p.energy/p.initial_energy
         utilities[i] = p.log_energy
         gaps[i] = p.gap
         times[i] = p.time
@@ -54,6 +56,7 @@ def run_wf(clients_for_each_run, min_epochs, max_time):
     print(f"Optimization time = {np.mean(durations)} +- {stats.sem(durations) * stats.t.ppf((1+0.95)/2., len(durations)-1)}s")
     print(f"Round time = {np.mean(times)} +- {stats.sem(times) * stats.t.ppf((1+0.95)/2., len(times)-1)}s")
     print(f"Energy = {np.mean(energies)} +- {stats.sem(energies) * stats.t.ppf((1+0.95)/2., len(energies)-1)}s")
+    print(f"Energy drop factor = {np.mean(final_to_initial_energies)} +- {stats.sem(final_to_initial_energies) * stats.t.ppf((1+0.95)/2., len(energies)-1)}s")
     print(f"Utility = {np.mean(utilities)} +- {stats.sem(utilities) * stats.t.ppf((1+0.95)/2., len(utilities)-1)}s")
     print(f"Gap = {np.mean(gaps)} +- {stats.sem(gaps) * stats.t.ppf((1+0.95)/2., len(gaps)-1)}s")
     print(f"Energy std. dev. = {np.mean(energy_stdevs)} +- {stats.sem(energy_stdevs) * stats.t.ppf((1+0.95)/2., len(gaps)-1)}s")
@@ -62,6 +65,7 @@ def run_uniform(clients_for_each_run, min_epochs, max_time):
     num_executions = len(clients_for_each_run)
     durations = np.zeros(num_executions)
     energies = np.zeros(num_executions)
+    final_to_initial_energies = np.zeros(num_executions)
     utilities = np.zeros(num_executions)
     gaps = np.zeros(num_executions)
     times = np.zeros(num_executions)
@@ -74,6 +78,7 @@ def run_uniform(clients_for_each_run, min_epochs, max_time):
 
         durations[i] = p.elapsed_time
         energies[i] = p.energy/num_clients
+        final_to_initial_energies[i] = 1-p.energy/p.initial_energy
         utilities[i] = p.log_energy
         gaps[i] = p.gap
         times[i] = p.time
@@ -84,6 +89,7 @@ def run_uniform(clients_for_each_run, min_epochs, max_time):
     print(f"Execution time = {np.mean(durations)} +- {stats.sem(durations) * stats.t.ppf((1+0.95)/2., len(durations)-1)}s")
     print(f"Round time = {np.mean(times)} +- {stats.sem(times) * stats.t.ppf((1+0.95)/2., len(times)-1)}s")
     print(f"Energy = {np.mean(energies)} +- {stats.sem(energies) * stats.t.ppf((1+0.95)/2., len(energies)-1)}s")
+    print(f"Energy drop factor = {np.mean(final_to_initial_energies)} +- {stats.sem(final_to_initial_energies) * stats.t.ppf((1+0.95)/2., len(energies)-1)}s")
     print(f"Utility = {np.mean(utilities)} +- {stats.sem(utilities) * stats.t.ppf((1+0.95)/2., len(utilities)-1)}s")
     print(f"Gap = {np.mean(gaps)} +- {stats.sem(gaps) * stats.t.ppf((1+0.95)/2., len(gaps)-1)}s")
     print(f"Energy std. dev. = {np.mean(energy_stdevs)} +- {stats.sem(energy_stdevs) * stats.t.ppf((1+0.95)/2., len(gaps)-1)}s")

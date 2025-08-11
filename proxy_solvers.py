@@ -29,6 +29,7 @@ class Solver:
     def _report(self):
         self.log_energy = 0
         self.energy = 0
+        self.initial_energy = 0
         self.time = 0
         for i, client in enumerate(self.clients_list):
             _print(f"---------------")
@@ -36,9 +37,11 @@ class Solver:
             client.report()
             self.log_energy += math.log10(client.Ei)
             self.energy += client.Ei
+            self.initial_energy += client.Eio
             if client.Ti > self.time:
                 self.time = client.Ti
         _print(f"TOTAL ENERGY: {self.energy}")
+        _print(f"INITIAL ENERGY: {self.initial_energy}")
         _print(f"TOTAL FAIRNESS: {self.log_energy}")
         
         top = max([client.Ei for client in self.clients_list])

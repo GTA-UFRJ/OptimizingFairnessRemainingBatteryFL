@@ -81,3 +81,69 @@ class UniformSolver(Solver):
 
         self._report()
 
+class ProportionalEnergySolver(Solver):
+    def __init__(
+        self,
+        clients_list:list,
+        num_min_epochs:int,
+        time_budget:float,
+        is_log_active=True) -> None:
+        
+        super().__init__(clients_list,num_min_epochs,time_budget,is_log_active)
+
+    def solve(self):
+        start_time = time()
+
+        total_energy = 0
+        for client in self.clients_list:
+            total_energy += client.Eio 
+
+        r_list = []
+        for client in self.clients_list:
+            r_list.append(self.R * client.Eio/total_energy)
+        
+        self.new_clients_list = []
+        for i, client in enumerate(self.clients_list):
+            client.compute(r_list[i], self.csi)
+            self.new_clients_list.append(client)
+
+        self.clients_list = self.new_clients_list
+
+        self.elapsed_time = time()-start_time
+
+        self._report()
+
+class ProportionalEfficiencySolver(Solver):
+    def __init__(
+        self,
+        clients_list:list,
+        num_min_epochs:int,
+        time_budget:float,
+        is_log_active=True) -> None:
+        
+        super().__init__(clients_list,num_min_epochs,time_budget,is_log_active)
+
+    def solve(self):
+        start_time = time()
+
+        total_inverse_round_power = 0
+        for c in self.clients_list:
+            round_consumption = c.P_down_avg - c.Pi + c.epsilon_i/c.tau_i 
+            print(c.epsilon_i)
+            total_inverse_round_power +=  1/round_consumption
+
+        r_list = []
+        for c in self.clients_list:
+            round_consumption = c.P_down_avg - c.Pi + c.epsilon_i/c.tau_i 
+            r_list.append(self.R * (1/round_consumption) / total_inverse_round_power)
+        
+        self.new_clients_list = []
+        for i, client in enumerate(self.clients_list):
+            client.compute(r_list[i], self.csi)
+            self.new_clients_list.append(client)
+
+        self.clients_list = self.new_clients_list
+
+        self.elapsed_time = time()-start_time
+
+        self._report()

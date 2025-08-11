@@ -1,4 +1,4 @@
-from proxy_solvers import UniformSolver
+from proxy_solvers import *
 from client import Client
 from cases.case4 import *
 
@@ -24,7 +24,21 @@ for i, client_parameters in enumerate(clients_parameters):
     clients_list.append(client)
 
 problem = UniformSolver(
-    clients_list=clients_list,
+    clients_list=clients_list.copy(),
+    num_min_epochs=num_min_epochs,
+    time_budget=time_budget
+)
+problem.solve()
+
+problem = ProportionalEnergySolver(
+    clients_list=clients_list.copy(),
+    num_min_epochs=num_min_epochs,
+    time_budget=time_budget
+)
+problem.solve()
+
+problem = ProportionalEfficiencySolver(
+    clients_list=clients_list.copy(),
     num_min_epochs=num_min_epochs,
     time_budget=time_budget
 )

@@ -4,9 +4,9 @@ import numpy as np
 # Use your custom style
 plt.style.use('~/guiaraujo.mplstyle')
 
-solvers = ["WF","Uniform rounds","Prop. energy","Prop. time"]
-times_10_to_40 = [23.7, 13.13, 0, 0]
-times_10_to_40_err = [0.1, 0.04, 0, 0]
+solvers = ["WF","Uniform rounds","Prop. energy","Prop. efficiency"]
+times_10_to_40 = [23.6, 12.91, 26.1, 0]
+times_10_to_40_err = [0.1, 0.04, 0.3, 0]
 
 x = np.arange(len(solvers))
 

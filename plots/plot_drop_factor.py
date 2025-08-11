@@ -5,40 +5,25 @@ import numpy as np
 plt.style.use('~/guiaraujo.mplstyle')
 
 solvers = ["WF","Uniform rounds","Prop. energy","Prop. time"]
-drop_factor_8_to_10 = [4.20, 5.16, 0, 0]
-drop_factor_8_to_10_err = [0.02, 0.02, 0, 0]
 drop_factor_10_to_40 = [1.53, 1.79, 0, 0]
 drop_factor_10_to_40_err = [0.02, 0.01, 0, 0]
 
 x = np.arange(len(solvers))
 
-fig, ax = plt.subplots(figsize=(12,9), layout='constrained')
-
-# 8 to 10
-rects = ax.bar(
-    x, 
-    drop_factor_8_to_10, 
-    yerr=drop_factor_8_to_10_err,
-    width=0.25, 
-    label="SoC 8-10%")
-ax.bar_label(rects, padding=3)
-
+fig, ax = plt.subplots(figsize=(12,9))
 # 10 to 40
 rects = ax.bar(
-    x+0.25, 
+    x, 
     drop_factor_10_to_40, 
     yerr=drop_factor_10_to_40_err,
-    width=0.25, 
+    width=0.5, 
     label="SoC 10-40%")
-ax.bar_label(rects, padding=3)
 
-ax.set_xticks(x+0.25/2)
+ax.set_xticks(x)
 ax.set_xticklabels(solvers)
 ax.set_xlabel("Method")
 ax.set_ylabel("Energy drop factor (%)")
-#ax.set_ylim(4,6)
-
-ax.legend()
+ax.set_ylim(1,2)
 
 plt.tight_layout()
 plt.savefig("plots/drop_factor.png", dpi=300)

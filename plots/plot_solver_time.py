@@ -5,8 +5,8 @@ import numpy as np
 plt.style.use('~/guiaraujo.mplstyle')
 
 solvers = ["WF","Uniform rounds","Prop. energy","Prop. efficiency"]
-times_soc_10_to_40 = [1565, 87, 102, 114]
-times_soc_10_to_40_err = [30, 1, 1, 1.5]
+times_soc_10_to_40 = [1565, 87, 97, 116]
+times_soc_10_to_40_err = [30, 1, 1, 1]
 
 x = np.arange(len(solvers))
 

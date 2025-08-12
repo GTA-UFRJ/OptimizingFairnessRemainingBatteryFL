@@ -18,7 +18,8 @@ class Solver:
 
         self.clients_list = clients_list
         self.num_clients = len(clients_list)
-        self.time_budget = time_budget        
+        self.time_budget = time_budget       
+        self.num_min_epochs = num_min_epochs 
 
         global log
         log = is_log_active
@@ -100,7 +101,8 @@ class ProportionalEnergySolver(Solver):
 
         r_list = []
         for client in self.clients_list:
-            r_list.append(self.R * client.Eio/total_energy)
+            num_epochs = self.num_min_epochs * client.Eio/total_energy
+            r_list.append(self.csi - num_epochs)
         
         self.new_clients_list = []
         for i, client in enumerate(self.clients_list):
@@ -134,7 +136,8 @@ class ProportionalEfficiencySolver(Solver):
         r_list = []
         for c in self.clients_list:
             round_consumption = c.P_down_avg - c.Pi + c.epsilon_i/c.tau_i 
-            r_list.append(self.R * (1/round_consumption) / total_inverse_round_power)
+            num_epochs = self.num_min_epochs * (1/round_consumption) / total_inverse_round_power
+            r_list.append(self.csi - num_epochs)
         
         self.new_clients_list = []
         for i, client in enumerate(self.clients_list):

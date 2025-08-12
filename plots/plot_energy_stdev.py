@@ -5,7 +5,7 @@ import numpy as np
 plt.style.use('~/guiaraujo.mplstyle')
 
 solvers = ["WF","Uniform rounds","Prop. energy","Prop. efficiency"]
-stdev_soc_10_to_40 = [6385,6751,8225, 6788]
+stdev_soc_10_to_40 = [6385,6751,6612,6733]
 stdev_soc_10_to_40_err = [67, 66, 79, 65]
 
 x = np.arange(len(solvers))
@@ -24,7 +24,7 @@ ax.set_xticks(x)
 ax.set_xticklabels(solvers)
 ax.set_xlabel("Method")
 ax.set_ylabel("Energy standard deviation")
-ax.set_ylim(6000,9000)
+ax.set_ylim(6000,7000)
 
 plt.tight_layout()
 plt.savefig("plots/stdev_soc.png", dpi=300)

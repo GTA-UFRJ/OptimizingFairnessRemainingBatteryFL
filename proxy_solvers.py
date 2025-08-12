@@ -129,7 +129,6 @@ class ProportionalEfficiencySolver(Solver):
         total_inverse_round_power = 0
         for c in self.clients_list:
             round_consumption = c.P_down_avg - c.Pi + c.epsilon_i/c.tau_i 
-            print(c.epsilon_i)
             total_inverse_round_power +=  1/round_consumption
 
         r_list = []

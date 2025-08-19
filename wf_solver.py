@@ -15,7 +15,8 @@ class WaterFillingSolver:
         num_min_epochs:int,
         time_budget:float,
         thresh:int=1,
-        is_log_active=True) -> None:
+        is_log_active=True,
+        fixed_epochs:int=0):
         
         self.clients_list = clients_list
         self.num_clients = len(clients_list)
@@ -25,6 +26,8 @@ class WaterFillingSolver:
         global log
         log = is_log_active
 
+        self._run_fixed_num_epochs(fixed_epochs)
+
         self.csi = self._compute_ceil_num_epochs()
         _print(f"Suppose clients will train for {self.csi} epochs. Lets reduce that!")
         self.R = self.num_clients * self.csi  - num_min_epochs
@@ -33,6 +36,11 @@ class WaterFillingSolver:
         #self.U = (self.R + sum(self.Ni_list)) / self.num_clients
         self.U = self.R + max(self.Ni_list)
         self.L = min(self.Ni_list) #-self.U
+
+    def _run_fixed_num_epochs(self, fixed_epochs):
+        for client in self.clients_list:
+            client.Ti = client.tau_i * fixed_epochs
+            client.Eio = client.Eio - (client.P_down_avg-client.Pi)*client.Ti - fixed_epochs*client.epsilon_i
 
     def _compute_Nis(self):
         # Interpretation for Ni:
@@ -122,14 +130,14 @@ class WaterFillingSolver:
             client.report()
             self.log_energy += math.log10(client.Ei)
             self.energy += client.Ei
-            self.initial_energy += client.Eio
+            self.initial_energy += client.original_Eio
             if client.Ti > self.time:
                 self.time = client.Ti
         _print(f"TOTAL ENERGY: {self.energy}")
         _print(f"INITIAL ENERGY: {self.initial_energy}")
         _print(f"TOTAL FAIRNESS: {self.log_energy}")
         
-        top = max([client.Ei for client in self.clients_list])
+        top = max([client.original_Eio for client in self.clients_list])
         self.gap = sum([1 - client.Ei/top for client in self.clients_list])/self.num_clients
         _print(f"ENERGY GAP TO MAX: {self.gap}")
 

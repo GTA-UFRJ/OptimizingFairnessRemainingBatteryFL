@@ -21,12 +21,14 @@ class Client:
         is_log_active=True
     ) -> None:
         self.Eio = Eio
+        self.original_Eio = Eio
         self.P_down_avg = P_down_avg
         self.Pi = Pi
         self.ui = ui
         self.di = di
         self.max_time = max_time
-        
+        self.Ti = 0
+
         global log
         log = is_log_active
 
@@ -42,7 +44,7 @@ class Client:
     def _setters(self,ri,Ui,Ti,csi):
         self.ri = ri
         self.Ui = Ui
-        self.Ti = Ti
+        self.Ti += Ti
         self.num_epochs = csi-ri
         self.energy_consumed_training = self.epsilon_i * self.num_epochs
         self.energy_consumed_base = self.P_down_avg * self.max_time

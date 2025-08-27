@@ -50,7 +50,7 @@ class WaterFillingSolver:
         self.Ni_list = [client._compute_Ni(self.csi) for client in self.clients_list]
             
     def _compute_ceil_num_epochs(self):
-        return min([floor((self.time_budget-client.ui-client.di)/client.tau_i) for client in self.clients_list])
+        return max([floor((self.time_budget-client.ui-client.di)/client.tau_i) for client in self.clients_list])
 
     def _update_clients(self):
         self.new_clients_list = []

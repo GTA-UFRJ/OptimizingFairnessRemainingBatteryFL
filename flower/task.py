@@ -35,7 +35,8 @@ def train(net, trainloader, valloader, epochs, batches):
     criterion = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
     net.train()
-    for _ in range(epochs):
+    num_samples = 0
+    for _ in range(int(epochs)):
         num_samples = 0 
         for i, (images, labels) in enumerate(trainloader):
             images, labels = images, labels

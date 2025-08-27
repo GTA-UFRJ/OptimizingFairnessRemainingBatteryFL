@@ -3,3 +3,5 @@ __pycache__
 logs/random*
 backups
 flower/data/MNIST
+flower/reports
+flower/initial_clients

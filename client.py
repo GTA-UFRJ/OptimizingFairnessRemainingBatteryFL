@@ -32,6 +32,7 @@ class Client:
         global log
         log = is_log_active
 
+
         self.epsilon_i = Bi*ci*gamma_i*fi*fi # energy per epoch
         self.tau_i = Bi*ci/fi # time per epoch (bacthes * cycles/batch / cycles/sec = sec)
         #self.Ki = self.epsilon_i + self.tau_i * (self.P_down_avg - self.Pi) # energy decreasse per epoch

@@ -8,7 +8,7 @@ import json
 from wf_solver import WaterFillingSolver
 from client import Client
 
-from task import MLP, get_weights
+from flower.task import MLP, get_weights
 
 def weighted_average(metrics: List[Tuple[int, Metrics]]) -> Metrics:
     examples = [num_examples for num_examples, _ in metrics]
@@ -44,35 +44,36 @@ class Optimizer(WaterFillingSolver):
             self.clients_list.append(
                 Client(
                     Eio=Eo, 
-                    Bi=report["batches"], 
+                    Bi=report["num_batches"], 
                     gamma_i=report["gamma_est"],
                     ci=report["ci_est"],
                     fi=f,
                     P_down_avg=report["p_down_avg"],
                     Pi=0,
                     max_time=time_budget,
-                    ui=4*8/report["upload_speed"],
-                    di=4*8/report["download_speed"],
-                    is_log_active=False)
+                    ui=4*8/report["upload_Mbps"],
+                    di=4*8/report["download_Mbps"],
+                    is_log_active=True)
             )
             
 class ModFedAvg(FedAvg):
-    def __init__(self, net, num_min_epochs, time_budget, fixed_epochs) -> None:
+    def __init__(self, net, num_min_epochs, time_budget, fixed_epochs, num_clients) -> None:
+        self.num_clients = num_clients
         ndarrays = get_weights(net)
         parameters = ndarrays_to_parameters(ndarrays)
         self.num_min_epochs = num_min_epochs
         self.time_budget = time_budget
         self.fixed_epochs = fixed_epochs
-        super().__init__(fraction_fit=1, fraction_evaluate=0.5, min_fit_clients=2, min_evaluate_clients=2, min_available_clients=2, fit_metrics_aggregation_fn=weighted_average, initial_parameters=parameters)
+        super().__init__(fraction_fit=1, fraction_evaluate=0.5, min_fit_clients=num_clients, min_evaluate_clients=num_clients, min_available_clients=num_clients, fit_metrics_aggregation_fn=weighted_average, initial_parameters=parameters)
 
     def read_clients_reports(self):
-        self.received_reports_list = [None] * len(Path("reports"))
-        for file in Path("reports"):
+        self.received_reports_list = [None] * self.num_clients
+        for file in Path("flower/reports").glob("*.json"):
             file = str(file)
             try:
                 slices = file.split("_")
                 client_id = int(slices[1])
-                with open(file,'rb') as f:
+                with open(file,'r') as f:
                     self.received_reports_list[client_id] = json.load(f)
             except:
                 continue
@@ -80,10 +81,10 @@ class ModFedAvg(FedAvg):
     def generate_server_reports(self):
         clients_rounds = [self.optimizer.csi - r for r in self.optimizer.r_list]
         for client_id, num_epochs in enumerate(clients_rounds):
-            with open(f"reports/server_to_client_{client_id}.json",'wb') as f:
+            with open(f"flower/reports/server_to_client_{client_id}.json",'w') as f:
                 json.dump({"num_epochs":num_epochs},f)
 
-    def aggregate_fit(self, server_round: int, results: List[Tuple[ClientProxy | FitRes]], failures: List[Tuple[ClientProxy | FitRes] | BaseException]) -> Tuple[Parameters | None | Metrics[str, bool | bytes | float | int | str]]:
+    def aggregate_fit(self, server_round: int, results, failures):
         self.read_clients_reports()
         self.optimizer = Optimizer(self.received_reports_list, self.num_min_epochs, self.time_budget, self.fixed_epochs)
         self.optimizer.solve()
@@ -98,5 +99,5 @@ if __name__ == "__main__":
     start_server(
         server_address="0.0.0.0:8080",
         config=config,
-        strategy=ModFedAvg(MLP()),
+        strategy=ModFedAvg(MLP(),num_min_epochs=50,time_budget=40,fixed_epochs=2,num_clients=5),
     )

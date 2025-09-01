@@ -1,12 +1,12 @@
-from typing import Callable, List, Tuple
+from typing import List, Tuple
 from pathlib import Path
-from flwr.common import FitRes, Metrics, MetricsAggregationFn, Parameters, ndarrays_to_parameters
+from flwr.common import Metrics, ndarrays_to_parameters
 from flwr.server import ServerConfig, start_server
-from flwr.server.client_proxy import ClientProxy
 from flwr.server.strategy import FedAvg
 import json
 from wf_solver import WaterFillingSolver
 from client import Client
+import sys
 
 from flower.task import MLP, get_weights
 
@@ -78,26 +78,29 @@ class ModFedAvg(FedAvg):
             except:
                 continue
 
-    def generate_server_reports(self):
-        clients_rounds = [self.optimizer.csi - r for r in self.optimizer.r_list]
+    def generate_server_reports(self, clients_rounds):
         for client_id, num_epochs in enumerate(clients_rounds):
             with open(f"flower/reports/server_to_client_{client_id}.json",'w') as f:
-                json.dump({"num_epochs":num_epochs},f)
+                json.dump({"num_epochs":num_epochs+self.fixed_epochs},f)
 
     def aggregate_fit(self, server_round: int, results, failures):
-        self.read_clients_reports()
-        self.optimizer = Optimizer(self.received_reports_list, self.num_min_epochs, self.time_budget, self.fixed_epochs)
-        self.optimizer.solve()
-        self.generate_server_reports()
-        self.optimizer
+        if self.num_min_epochs == 0:
+            clients_rounds = [self.fixed_epochs] * self.num_clients
+        else:
+            self.optimizer = Optimizer(self.received_reports_list, self.num_min_epochs, self.time_budget, self.fixed_epochs)
+            self.optimizer.solve()
+            clients_rounds = [self.optimizer.csi - r for r in self.optimizer.r_list]
+        self.generate_server_reports(clients_rounds)
         return super().aggregate_fit(server_round, results, failures)
 
 if __name__ == "__main__":
+
+    num_clients = int(sys.argv[1])
 
     config = ServerConfig(num_rounds=10)
 
     start_server(
         server_address="0.0.0.0:8080",
         config=config,
-        strategy=ModFedAvg(MLP(),num_min_epochs=50,time_budget=40,fixed_epochs=2,num_clients=5),
+        strategy=ModFedAvg(MLP(),num_min_epochs=50,time_budget=40,fixed_epochs=0,num_clients=num_clients),
     )

@@ -5,3 +5,4 @@ backups
 flower/data/MNIST
 flower/reports
 flower/initial_clients
+flower/logs*

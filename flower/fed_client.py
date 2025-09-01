@@ -70,6 +70,7 @@ class FlowerClient(NumPyClient):
     def evaluate(self, parameters, config):
         set_weights(net, parameters)
         loss, accuracy = test(net, testloader)
+        print(f"Test accuracy: {accuracy}")
         return loss, len(testloader.dataset), {"accuracy": accuracy}
 
 if __name__ == "__main__":

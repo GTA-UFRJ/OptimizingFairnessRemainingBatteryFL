@@ -119,7 +119,11 @@ class WaterFillingSolver:
         self.elapsed_time = time()-start_time
         self._report()
 
-    def _report(self):
+    def _report(self,force_print=False):
+        global log
+        old_log = log
+        if force_print:
+            log=True
         self.log_energy = 0
         self.energy = 0
         self.initial_energy = 0
@@ -147,3 +151,4 @@ class WaterFillingSolver:
         _print(f"ENERGY STANDARD DEVIATION: {self.stdev}")
 
         _print(f"ELAPSED TIME: {self.elapsed_time}")
+        log = old_log

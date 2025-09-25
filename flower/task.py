@@ -33,7 +33,7 @@ def train(net, trainloader, valloader, epochs, batches):
     """Train the model on the training set."""
     log(INFO, "Starting training...")
     criterion = torch.nn.CrossEntropyLoss()
-    optimizer = torch.optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+    optimizer = torch.optim.SGD(net.parameters(), lr=0.005, momentum=0.9)
     net.train()
     num_samples = 0
     for _ in range(int(epochs)):

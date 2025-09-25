@@ -50,13 +50,16 @@ class FlowerClient(NumPyClient):
         E = Eo - epsilon*self.epochs
         self.report["battery_soc"] = 100*(E/Emax)
         print(f"New battery SoC: {self.report["battery_soc"]}")
+        print(f"Created report: {json.dumps(self.report, indent=4)}")
         with open(f"flower/reports/client_{client_id}_to_server.json",'w') as f:
             json.dump(self.report,f,indent=4)
 
     def read_server_report(self):
         try:
             with open(f"flower/reports/server_to_client_{client_id}.json",'r') as f:
-                self.epochs = json.load(f)["num_epochs"]
+                report = json.load(f)
+                print(f"Received report: {report}")
+                self.epochs = report["num_epochs"]
         except:
             self.epochs = 10
 
@@ -80,7 +83,7 @@ if __name__ == "__main__":
     trainloader, testloader = load_data("flower/data/MNIST/private_dataloaders_clear",client_id)
 
     start_client(
-        server_address="127.0.0.1:8080",
+        server_address="127.0.0.1:7891",
         client=FlowerClient().to_client(),
     )    
     

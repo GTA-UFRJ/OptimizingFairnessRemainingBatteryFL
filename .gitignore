@@ -6,3 +6,5 @@ flower/data/MNIST
 flower/reports
 flower/initial_clients
 flower/logs*
+flower/fixed_*
+process_results/results.json

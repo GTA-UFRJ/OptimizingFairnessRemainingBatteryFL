@@ -8,3 +8,4 @@ flower/initial_clients
 flower/logs*
 flower/fixed_*
 process_results/results.json
+process_results/*.pkl

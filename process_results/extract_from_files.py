@@ -3,28 +3,8 @@ import re
 import math 
 import json
 import string
-
-def print_dict_struct(d):        
-    def print_tabs(n):
-        for _ in range(n): 
-            print('  ',end='')
-    def print_nested_dict_keys(d:dict,n=0):
-        print_tabs(n)
-        print('{')
-        for key, value in d.items():
-            n+=1
-            print_tabs(n)
-            print(key)
-            if isinstance(value, dict):
-                print_nested_dict_keys(value,n)
-            n-=1
-        print_tabs(n)
-        print('}')
-    import sys
-    s = sys.stdout
-    sys.stdout = open(os.path.join(my_dir,"results_struct"),'w')
-    print_nested_dict_keys(d)
-    sys.stdout = s
+import numpy as np
+from utils import print_dict_struct
 
 def extract_val_accuracy(filepath):
     with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
@@ -75,6 +55,8 @@ def analyse_run(run_dir):
 
     log_energy = sum([ math.log10(final_energy) for final_energy in client_to_energy_map.values() ])
 
+    log_energy = np.std([ final_energy for final_energy in client_to_energy_map.values() ])
+
     return {
         "acc_history": acc, # TODO: plot example of convergence
         "accuracy": final_acc, 
@@ -90,7 +72,6 @@ def analyse_scenario(scenario_dir):
 
 if __name__ == "__main__":
     my_dir = os.path.dirname(__file__)
-    print(my_dir)
     results_dir = os.path.join(my_dir,"../flower")
 
     scenarios_to_results_map = {
@@ -103,7 +84,7 @@ if __name__ == "__main__":
     for scenario in scenarios_list:
         scenarios_to_results_map[scenario] = analyse_scenario(os.path.join(results_dir,scenario))
 
-    print_dict_struct(scenarios_to_results_map)
+    print_dict_struct(scenarios_to_results_map, save=os.path.join(my_dir,"results_struct"))
 
     with open(os.path.join(my_dir,"results.json"),"w") as f:
         json.dump(scenarios_to_results_map,f, indent=4)

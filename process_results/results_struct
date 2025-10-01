@@ -1,1349 +1,1206 @@
 {
-  fixed_0_variable_50_lr_001
-  {
-    logs_2025_09_20_06_34_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+  fixed_0_variable_50_lr_001: {
+    logs_2025_09_20_06_34_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_07_00_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_07_00_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_07_26_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_07_26_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_19_06_24_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_19_06_24_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_11_19_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_11_19_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_12_29_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_12_29_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_01_09_
-    logs_2025_09_19_06_38_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_01_09_: <class 'NoneType'>
+    logs_2025_09_19_06_38_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_12_04_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_12_04_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_12_17_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_12_17_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_19_05_07_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_19_05_07_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_10_50_
-    logs_2025_09_20_11_32_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_10_50_: <class 'NoneType'>
+    logs_2025_09_20_11_32_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_06_20_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_06_20_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_11_49_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_11_49_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_07_14_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_07_14_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_19_05_52_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_19_05_52_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_07_37_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_07_37_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_06_05_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_06_05_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_11_06_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_11_06_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_19_06_06_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_19_06_06_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_10_53_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_10_53_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_12_55_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_12_55_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_06_48_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_06_48_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_19_05_38_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_19_05_38_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_12_42_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_12_42_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
   }
-  fixed_25_variable_25_lr_001
-  {
-    logs_2025_09_20_03_05_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+  fixed_25_variable_25_lr_001: {
+    logs_2025_09_20_03_05_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_05_26_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_05_26_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_01_37_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_01_37_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_01_58_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_01_58_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_02_31_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_02_31_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_03_25_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_03_25_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_04_57_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_04_57_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_04_54_
-    logs_2025_09_20_04_47_
-    logs_2025_09_20_02_48_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_04_54_: <class 'NoneType'>
+    logs_2025_09_20_04_47_: <class 'NoneType'>
+    logs_2025_09_20_02_48_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_01_55_
-    logs_2025_09_20_04_28_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_01_55_: <class 'NoneType'>
+    logs_2025_09_20_04_28_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_01_19_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_01_19_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_03_41_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_03_41_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_05_13_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_05_13_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_04_13_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_04_13_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_05_40_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_05_40_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_03_57_
-    logs_2025_09_20_02_14_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_03_57_: <class 'NoneType'>
+    logs_2025_09_20_02_14_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_04_44_
+    logs_2025_09_20_04_44_: <class 'NoneType'>
   }
-  fixed_50_variable_0_lr_001
-  {
-    logs_2025_09_20_05_52_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+  fixed_50_variable_0_lr_001: {
+    logs_2025_09_20_05_52_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_01_41_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_01_41_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_02_05_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_02_05_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_04_20_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_04_20_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_12_08_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_12_08_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_09_39_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_09_39_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_03_15_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_03_15_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_05_30_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_05_30_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_03_58_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_03_58_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_19_11_23_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_19_11_23_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_12_32_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_12_32_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_05_07_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_05_07_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_08_30_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_08_30_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_10_03_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_10_03_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_06_14_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_06_14_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_02_29_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_02_29_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_10_46_
-    logs_2025_09_19_11_46_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_10_46_: <class 'NoneType'>
+    logs_2025_09_19_11_46_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_08_53_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_08_53_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_03_35_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_03_35_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_01_19_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_01_19_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_06_36_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_06_36_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_10_24_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_10_24_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_12_55_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_12_55_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_06_59_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_06_59_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_19_10_59_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_19_10_59_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_07_44_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_07_44_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_02_52_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_02_52_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_08_08_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_08_08_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_09_16_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_09_16_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_04_44_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_04_44_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
-    logs_2025_09_20_07_21_
-    {
-      acc_history
-      accuracy
-      energy_history
-      {
-        client_0
-        client_1
-        client_2
-        client_3
-        client_4
-        client_5
-        client_6
-        client_7
-        client_8
-        client_9
+    logs_2025_09_20_07_21_: {
+      acc_history: <class 'list'>
+      accuracy: <class 'float'>
+      energy_history: {
+        client_0: <class 'list'>
+        client_1: <class 'list'>
+        client_2: <class 'list'>
+        client_3: <class 'list'>
+        client_4: <class 'list'>
+        client_5: <class 'list'>
+        client_6: <class 'list'>
+        client_7: <class 'list'>
+        client_8: <class 'list'>
+        client_9: <class 'list'>
       }
-      fairness
+      fairness: <class 'numpy.float64'>
     }
   }
 }

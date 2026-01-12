@@ -166,7 +166,7 @@ def run_proportional_efficiency(clients_for_each_run, min_epochs, max_time):
 
 if __name__ == "__main__":
 
-    fixed_epochs = 10
+    fixed_epochs = 0
 
     num_clients = int(sys.argv[1]) 
     if len(sys.argv) > 2:
@@ -175,15 +175,15 @@ if __name__ == "__main__":
         log = True
     num_executions = 100
 
-    max_time = 120
-    min_epochs = num_clients*(10-fixed_epochs)
+    max_time = 25
+    min_epochs = num_clients*(9-fixed_epochs)
 
     clients_for_each_run = generate_clients_for_all_executions(num_executions, num_clients, max_time)
 
     run_wf(clients_for_each_run.copy(), min_epochs, max_time)
 
-    #run_uniform(clients_for_each_run.copy(), min_epochs, max_time)
+    run_uniform(clients_for_each_run.copy(), min_epochs, max_time)
 
-    #run_proportional_energy(clients_for_each_run.copy(), min_epochs, max_time)
+    run_proportional_energy(clients_for_each_run.copy(), min_epochs, max_time)
 
-    #run_proportional_efficiency(clients_for_each_run.copy(), min_epochs, max_time)
+    run_proportional_efficiency(clients_for_each_run.copy(), min_epochs, max_time)

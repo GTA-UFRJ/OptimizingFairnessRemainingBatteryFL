@@ -4,7 +4,7 @@ import numpy as np
 # Use your custom style
 plt.style.use('~/guiaraujo.mplstyle')
 
-solvers = ["WF","Uniform rounds","Prop. energy","Prop. efficiency"]
+solvers = ["WF","FedAvg","PropEnerg","PropEffic"]
 stdev_soc_10_to_40 = [6385,6751,6612,6733]
 stdev_soc_10_to_40_err = [67, 66, 79, 65]
 
@@ -22,8 +22,8 @@ rects = ax.bar(
 
 ax.set_xticks(x)
 ax.set_xticklabels(solvers)
-ax.set_xlabel("Method")
-ax.set_ylabel("Energy standard deviation")
+ax.set_xlabel("Método")
+ax.set_ylabel("Desvio padrão da energia")
 ax.set_ylim(6000,7000)
 
 plt.tight_layout()

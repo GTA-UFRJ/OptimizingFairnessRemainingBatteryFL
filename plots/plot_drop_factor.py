@@ -4,7 +4,7 @@ import numpy as np
 # Use your custom style
 plt.style.use('~/guiaraujo.mplstyle')
 
-solvers = ["WF","Uniform rounds","Prop. energy","Prop. efficiency"]
+solvers = ["WF","FedAvg","PropEnerg","PropEffic"]
 drop_factor_10_to_40 = [1.53, 1.79, 1.80, 1.79]
 drop_factor_10_to_40_err = [0.02, 0.01, 0.01, 0.01]
 
@@ -21,8 +21,8 @@ rects = ax.bar(
 
 ax.set_xticks(x)
 ax.set_xticklabels(solvers)
-ax.set_xlabel("Method")
-ax.set_ylabel("Energy drop factor (%)")
+ax.set_xlabel("Método")
+ax.set_ylabel("FQ (%)")
 ax.set_ylim(1,2)
 
 plt.tight_layout()

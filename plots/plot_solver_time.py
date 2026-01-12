@@ -4,7 +4,7 @@ import numpy as np
 # Use your custom style
 plt.style.use('~/guiaraujo.mplstyle')
 
-solvers = ["WF","Uniform rounds","Prop. energy","Prop. efficiency"]
+solvers = ["WF","FedAvg","PropEnerg","PropEffic"]
 times_soc_10_to_40 = [1565, 87, 97, 116]
 times_soc_10_to_40_err = [30, 1, 1, 1]
 
@@ -22,8 +22,8 @@ rects = ax.bar(
 
 ax.set_xticks(x)
 ax.set_xticklabels(solvers)
-ax.set_xlabel("Method")
-ax.set_ylabel("Solving time (microseconds)")
+ax.set_xlabel("Método")
+ax.set_ylabel("Tempo para solução (microssegundos)")
 #ax.set_ylim(4000,5000)
 
 plt.tight_layout()

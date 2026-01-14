@@ -146,36 +146,20 @@ if __name__ == "__main__":
     base_path = str(pathlib.Path().resolve())
 
     if(config.get('dataset','dataset') == "mnist"):
-        if(config.get('exec_mode','exec_mode') == "gramine"):
-            GLOBAL_INFO_FOR_REPORT['encryption'] = True
-            data_path = "/data"
-            public_data_path = "/data/MNIST/public_dataloaders"
-            private_data_path = "/data/MNIST/private_dataloaders"
-            report_path = "/data/MNIST"
-            do_download = False
-        else:
-            GLOBAL_INFO_FOR_REPORT['encryption'] = False
-            data_path = base_path
-            public_data_path = base_path + "/MNIST/public_dataloaders"
-            private_data_path = base_path + "/MNIST/private_dataloaders_clear"
-            report_path = base_path + "/MNIST"
-            do_download = config.getboolean('dataset','download')
+        GLOBAL_INFO_FOR_REPORT['encryption'] = False
+        data_path = base_path
+        public_data_path = base_path + "/MNIST/public_dataloaders"
+        private_data_path = base_path + "/MNIST/private_dataloaders_clear"
+        report_path = base_path + "/MNIST"
+        do_download = config.getboolean('dataset','download')
 
     elif(config.get('dataset','dataset') == "cifar10"):
-        if(config.get('exec_mode','exec_mode') == "gramine"):
-            GLOBAL_INFO_FOR_REPORT['encryption'] = True
-            data_path = "/data/CIFAR10"
-            public_data_path = "/data/CIFAR10/public_dataloaders"
-            private_data_path = "/data/CIFAR10/private_dataloaders"
-            report_path = "/data/CIFAR10"
-            do_download = False
-        else:
-            GLOBAL_INFO_FOR_REPORT['encryption'] = False
-            data_path = base_path + "/CIFAR10"
-            public_data_path = base_path + "/CIFAR10/public_dataloaders"
-            private_data_path = base_path + "/CIFAR10/private_dataloaders_clear"
-            report_path = base_path + "/CIFAR10"
-            do_download = config.getboolean('dataset','download')
+        GLOBAL_INFO_FOR_REPORT['encryption'] = False
+        data_path = base_path + "/CIFAR10"
+        public_data_path = base_path + "/CIFAR10/public_dataloaders"
+        private_data_path = base_path + "/CIFAR10/private_dataloaders_clear"
+        report_path = base_path + "/CIFAR10"
+        do_download = config.getboolean('dataset','download')
 
     if(config.get('dataset','dataset') == "mnist"):
         train_data, test_data = fetch_mnist_dataset(do_download,data_path)    

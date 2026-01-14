@@ -45,7 +45,7 @@ class Client:
     def _setters(self,ri,Ui,Ti,csi):
         self.ri = ri
         self.Ui = Ui
-        self.Ti = Ti
+        self.Ti += Ti
         self.num_epochs = csi-ri
         self.energy_consumed_training = self.epsilon_i * self.num_epochs
         self.energy_consumed_base = self.P_down_avg * self.max_time

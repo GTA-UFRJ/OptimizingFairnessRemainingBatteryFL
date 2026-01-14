@@ -81,9 +81,14 @@ class ModFedAvg(FedAvg):
                 continue
 
     def generate_server_reports(self, clients_rounds):
+        list_of_selected_clients = []
         for client_id, num_epochs in enumerate(clients_rounds):
+            total = num_epochs + (self.fixed_epochs/self.num_clients)
+            if total > 0:
+                list_of_selected_clients.append(client_id)
             with open(f"flower/reports/server_to_client_{client_id}.json",'w') as f:
-                json.dump({"num_epochs":num_epochs + (self.fixed_epochs/self.num_clients)},f)
+                json.dump({"num_epochs":total},f)
+        print(f"Selected cleints: {list_of_selected_clients}")
 
     def aggregate_fit(self, server_round: int, results, failures):
         if self.num_min_epochs == 0:

@@ -10,6 +10,8 @@ echo $LOGDIR
 mkdir $LOGDIR
 rm $path/reports/*
 cd $path/..
+mkdir $path/reports
+mkdir $path/initial_clients
 pwd
 sleep 5
 python3 -um flower.fed_server $NUM_CLIENTS $FIXED_ROUNDS $VARIABLE_ROUNDS 1 > $LOGDIR/server.logs 2>&1 &

@@ -8,7 +8,6 @@ from flwr.common.logger import log
 from torch.utils.data import DataLoader
 from torchvision.datasets import CIFAR10
 from torchvision.transforms import Compose, Normalize, ToTensor
-
 class MLP(nn.Module):
     def __init__(self):
         super(MLP, self).__init__()

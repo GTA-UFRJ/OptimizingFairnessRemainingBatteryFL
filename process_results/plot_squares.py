@@ -31,6 +31,7 @@ def plot_squares(scenario_params:dict,lims, path_to_save):
     fig, ax = plt.subplots(figsize=(12,9))
     for params in scenario_params.values():
         if params.get("square"):
+            params["square"].set_label(params["name"])
             ax.add_patch(params["square"])
     ax.set_xlim(lims["xmin"]-(lims["xmax"]-lims["xmin"])/4,
                 lims["xmax"]+(lims["xmax"]-lims["xmin"])/4)
@@ -39,6 +40,7 @@ def plot_squares(scenario_params:dict,lims, path_to_save):
     #ax.set_aspect('equal', adjustable='box')
     ax.set_xlabel("Acurácia de teste do modelo global")
     ax.set_ylabel("Desvio padrão do nível de energia")
+    ax.legend(loc="upper right")
     #ax.set_title("")
     #plt.show()
     plt.savefig(path_to_save, dpi=300, format='png')
@@ -51,18 +53,23 @@ if __name__ == "__main__":
         d = pickle.load(f)
 
     scenario_params = {
-        "fixed_50_variable_0_lr_001": {
-            "name": "50 rodadas fixas",
+        "fixed_100_variable_0_lr_001": {
+            "name": "k=1 (100 épocas fixas)",
             "color": "red",
             "square": None,
         },
-        "fixed_25_variable_25_lr_001": {
-            "name": "25 rodadas fixas",
+        #"fixed_80_variable_20_lr_001": {
+        #    "name": "k=0,8 (80 fixas)",
+        #    "color": "orange",
+        #    "square": None,
+        #},
+        "fixed_50_variable_50_lr_001": {
+            "name": "k=0,5 (50 épocas fixas)",
             "color": "green",
             "square": None,
         },
-        "fixed_0_variable_50_lr_001": {
-            "name": "25 rodadas fixas",
+        "fixed_0_variable_100_lr_001": {
+            "name": "k=0 (0 épocas fixas)",
             "color": "blue",
             "square": None,
         },

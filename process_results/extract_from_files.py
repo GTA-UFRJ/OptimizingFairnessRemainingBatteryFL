@@ -12,12 +12,15 @@ def extract_val_accuracy(filepath):
 
     text = re.sub(r"\x1b\[[0-9;]*m", "", text)   # limpa códigos de cor ANSI
     text = re.sub(r"INFO\s*:\s*", "", text)      # remove prefixos INFO:
-
+    
     # Agora procura o trecho 'val_accuracy': [...]
     match = re.search(r"'val_accuracy':\s*(\[[^\]]*\])", text, re.DOTALL)
+
     if not match:
-        print("Accuracy not found")
+        print("Accuracy not found in ", filepath)
         return []
+    else:
+        print("Accuracy found in ", filepath)
 
     # Converte string para lista de tuplas Python
     val_accuracy_list = eval(match.group(1))
@@ -51,7 +54,12 @@ def analyse_run(run_dir):
     for i in range(10):
         client_to_energy_evolution_map[f"client_{i}"] = extract_energies(os.path.join(run_dir, f"client{i}.logs"))
 
-    client_to_energy_map = { k:v[-1] for k,v in client_to_energy_evolution_map.items() }
+    #print(client_to_energy_evolution_map)
+
+    client_to_energy_map = {}
+    for k,v in client_to_energy_evolution_map.items():
+        if v[-1] > 0:
+            client_to_energy_map[k] = v[-1]
 
     log_energy = sum([ math.log10(final_energy) for final_energy in client_to_energy_map.values() ])
 
@@ -75,9 +83,10 @@ if __name__ == "__main__":
     results_dir = os.path.join(my_dir,"../flower")
 
     scenarios_to_results_map = {
-        "fixed_0_variable_50_lr_001":{},
-        "fixed_25_variable_25_lr_001":{},
-        "fixed_50_variable_0_lr_001":{}
+        "fixed_0_variable_100_lr_001":{},
+        "fixed_50_variable_50_lr_001":{},
+        #"fixed_90_variable_20_lr_001":{},
+        "fixed_100_variable_0_lr_001":{}
     }
 
     scenarios_list = scenarios_to_results_map.keys()

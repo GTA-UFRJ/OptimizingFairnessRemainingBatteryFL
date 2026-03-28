@@ -1,0 +1,8 @@
+services:
+  wf-runner:
+    build: .
+    volumes:
+      - ./logs:/app/logs
+    environment:
+      - CASE=${CASE:-1}
+    command: /bin/sh -c "python sample_problem.py cases/case$${CASE}.json > logs/case$${CASE}.txt"

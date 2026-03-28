@@ -44,11 +44,51 @@ def extract_energies(filepath):
                 capacity = int(match.group(1))  # guarda o último valor encontrado
     return [ capacity*1e-3*3600*3.7*soc/100 for soc in values ]
 
+def extract_epochs_entropy(run_dir):
+    client_index_to_num_epochs = {}
+    for client_id in range(10):
+        filepath = os.path.join(run_dir, f"client{client_id}.logs")
+        with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
+            text = f.read()
+        # search for lines in the format Received report: {'num_epochs': 5.0} and transform to list of num_epochs
+        matches = re.findall(r"Received report:\s*\{[^}]*'num_epochs':\s*([0-9.+-eE]+)[^}]*\}", text)
+        if matches:
+            client_index_to_num_epochs[client_id] = [float(x) for x in matches]
+
+    round_index_to_epochs = {}    
+    for round_index in range(9): # assume 9 rounds
+        for client_epochs in client_index_to_num_epochs.values():
+            epochs = client_epochs[round_index]
+            if round_index not in round_index_to_epochs:
+                round_index_to_epochs[round_index] = []
+            round_index_to_epochs[round_index].append(epochs)
+            
+    # For each round, compute entropy of epochs distribution
+    round_index_to_entropy = {}
+    for round_index, epochs_list in round_index_to_epochs.items():
+        total_epochs = sum(epochs_list)
+        entropy = 0
+        for epochs in epochs_list:
+            p = epochs / total_epochs 
+            if p > 0:
+                entropy += -p * math.log2(p)
+            else:
+                entropy += 0
+        round_index_to_entropy[round_index] = entropy
+
+    # generate a list of NORMALIZED entropies
+    max_entropy = math.log2(len(client_index_to_num_epochs))  # maximum entropy possible
+    normalized_entropies = [ round_index_to_entropy[round_index]/max_entropy for round_index in sorted(round_index_to_entropy.keys()) ]
+
+    return normalized_entropies 
+
 def analyse_run(run_dir):
     acc = extract_val_accuracy(os.path.join(run_dir,"server.logs"))
     if len(acc) == 0:
         return None
     final_acc = acc[-1]
+
+    entropies = extract_epochs_entropy(run_dir)
 
     client_to_energy_evolution_map = {}
     for i in range(10):
@@ -67,6 +107,7 @@ def analyse_run(run_dir):
 
     return {
         "acc_history": acc, # TODO: plot example of convergence
+        "entropy_history": entropies, # TODO: plot example of selection entropy
         "accuracy": final_acc, 
         "energy_history":  client_to_energy_evolution_map, # TODO: plot example of batteries consumption
         "fairness": log_energy

@@ -14,6 +14,7 @@ def process_scenario(scenario_info:dict):
         "acc_history": {},
         "accuracy":[],
         "fairness":[],
+        "entropy_history":{}
     }
 
     for run_info in scenario_info.values():
@@ -28,11 +29,22 @@ def process_scenario(scenario_info:dict):
             else:
                 scenario_results["acc_history"][round_index].append(acc)
 
+        
+        for round_index, entropy in enumerate(run_info["entropy_history"]):    
+            if scenario_results["entropy_history"].get(round_index) is None:
+                scenario_results["entropy_history"][round_index] = [entropy]
+            else:
+                scenario_results["entropy_history"][round_index].append(entropy)
+
     scenario_results["accuracy"] = get_avg_and_error(scenario_results["accuracy"])
     scenario_results["fairness"] = get_avg_and_error(scenario_results["fairness"])
     scenario_results["acc_history"] = {
         k:get_avg_and_error(v) 
         for k,v in scenario_results["acc_history"].items()
+    }
+    scenario_results["entropy_history"] = {
+        k:get_avg_and_error(v) 
+        for k,v in scenario_results["entropy_history"].items()
     }
 
     return scenario_results

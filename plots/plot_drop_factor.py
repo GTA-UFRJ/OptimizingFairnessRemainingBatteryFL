@@ -26,5 +26,5 @@ ax.set_ylabel("FQ (%)")
 ax.set_ylim(1,2)
 
 plt.tight_layout()
-plt.savefig("plots/drop_factor.png", dpi=300)
+plt.savefig("figures/drop_factor.png", dpi=300)
 plt.close()

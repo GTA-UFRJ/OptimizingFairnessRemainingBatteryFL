@@ -1,0 +1,9 @@
+services:
+  gen_data:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: gen_data:latest
+    container_name: gen_data
+    volumes:
+      - ./MNIST:/app/MNIST

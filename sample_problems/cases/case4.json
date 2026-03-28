@@ -1,0 +1,24 @@
+{
+    "global_parameters": {
+        "num_min_epochs": 60,
+        "time_budget": 60,
+        "batches": 100
+    },
+    "clients": [
+        {
+            "battery_mAh": 3000,
+            "starting_soc": 0.7,
+            "charging_power": 13.5
+        },
+        {
+            "battery_mAh": 3000,
+            "starting_soc": 0.7,
+            "charging_power": 10.0
+        },
+        {
+            "battery_mAh": 3000,
+            "starting_soc": 0.8,
+            "charging_power": 13.5
+        }
+    ]
+}

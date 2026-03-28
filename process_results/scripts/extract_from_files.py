@@ -121,7 +121,7 @@ def analyse_scenario(scenario_dir):
 
 if __name__ == "__main__":
     my_dir = os.path.dirname(__file__)
-    results_dir = os.path.join(my_dir,"../flower")
+    results_dir = os.path.join(my_dir,"logs/")
 
     scenarios_to_results_map = {
         "fixed_0_variable_100_lr_001":{},
@@ -134,7 +134,7 @@ if __name__ == "__main__":
     for scenario in scenarios_list:
         scenarios_to_results_map[scenario] = analyse_scenario(os.path.join(results_dir,scenario))
 
-    print_dict_struct(scenarios_to_results_map, save=os.path.join(my_dir,"results_struct"))
+    print_dict_struct(scenarios_to_results_map, save=os.path.join(my_dir,"results/results_struct"))
 
-    with open(os.path.join(my_dir,"results.json"),"w") as f:
+    with open(os.path.join(my_dir,"processed/results.json"),"w") as f:
         json.dump(scenarios_to_results_map,f, indent=4)

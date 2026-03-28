@@ -1,0 +1,6 @@
+services:
+  plotter:
+    build: .
+    container_name: plot_container
+    volumes:
+      - ./figures:/app/figures

@@ -92,7 +92,6 @@ def run_uniform(clients_for_each_run, min_epochs, max_time):
     print(f"Gap = {np.mean(gaps)} +- {stats.sem(gaps) * stats.t.ppf((1+0.95)/2., len(gaps)-1)}s")
     print(f"Energy std. dev. = {np.mean(energy_stdevs)} +- {stats.sem(energy_stdevs) * stats.t.ppf((1+0.95)/2., len(gaps)-1)}s")
 
-
 def run_proportional_energy(clients_for_each_run, min_epochs, max_time):
     num_executions = len(clients_for_each_run)
     durations = np.zeros(num_executions)

@@ -1,4 +1,4 @@
-#!/binæbash
+#!/bin/bash
 FIXED_ROUNDS=$1
 VARIABLE_ROUNDS=$2
 
@@ -16,3 +16,5 @@ cp -r ../data/MNIST .
 
 sudo docker compose -f compose.yaml up --build
 cat $LOGDIR/server.log
+
+rm -rf ./wf_solver

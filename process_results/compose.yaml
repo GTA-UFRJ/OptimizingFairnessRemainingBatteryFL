@@ -1,0 +1,8 @@
+services:
+  process_results:
+    build: .
+    container_name: process_results_container
+    volumes:
+      - ./processed:/app/processed
+      - ./figures:/app/figures
+      - ./logs:/app/logs

@@ -14,3 +14,7 @@ wf_solver/build/
 old
 sample_problems/logs
 sample_problems/wf_solver
+process_results/logs/
+process_results/figures/
+process_results/processed/
+plots/figures/

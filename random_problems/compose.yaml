@@ -1,0 +1,8 @@
+services:
+  random-problem:
+    build: .
+    volumes:
+      - ./logs:/app/logs
+    environment:
+      - NUM_CLIENTS=${NUM_CLIENTS:-10}
+    command: /bin/sh -c "python random_problems.py $${NUM_CLIENTS} 0 > logs/logs.txt"

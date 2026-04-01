@@ -29,7 +29,8 @@ def extract_val_accuracy(filepath):
     accuracies = [acc for _, acc in val_accuracy_list]
     return accuracies
 
-def extract_energies(filepath):
+def extract_energies(scenario_dir, run_id, client_id):
+    filepath = os.path.join(scenario_dir, f"{run_id}_client{client_id}.logs")
     values = []
     capacity = None
     with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
@@ -44,10 +45,10 @@ def extract_energies(filepath):
                 capacity = int(match.group(1))  # guarda o último valor encontrado
     return [ capacity*1e-3*3600*3.7*soc/100 for soc in values ]
 
-def extract_epochs_entropy(run_dir):
+def extract_epochs_entropy(scenario_dir, run_id, num_clients, num_rounds):
     client_index_to_num_epochs = {}
-    for client_id in range(10):
-        filepath = os.path.join(run_dir, f"client{client_id}.logs")
+    for client_id in range(num_clients):
+        filepath = os.path.join(scenario_dir, f"{run_id}_client{client_id}.logs")
         with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
             text = f.read()
         # search for lines in the format Received report: {'num_epochs': 5.0} and transform to list of num_epochs
@@ -56,7 +57,7 @@ def extract_epochs_entropy(run_dir):
             client_index_to_num_epochs[client_id] = [float(x) for x in matches]
 
     round_index_to_epochs = {}    
-    for round_index in range(9): # assume 9 rounds
+    for round_index in range(num_rounds): # assume 9 rounds
         for client_epochs in client_index_to_num_epochs.values():
             epochs = client_epochs[round_index]
             if round_index not in round_index_to_epochs:
@@ -82,17 +83,18 @@ def extract_epochs_entropy(run_dir):
 
     return normalized_entropies 
 
-def analyse_run(run_dir):
-    acc = extract_val_accuracy(os.path.join(run_dir,"server.logs"))
+def analyse_run(scenario_dir, run_id, num_clients):
+    acc = extract_val_accuracy(os.path.join(scenario_dir,f"{run_id}_server.logs"))
+    num_rounds = len(acc)
     if len(acc) == 0:
         return None
     final_acc = acc[-1]
 
-    entropies = extract_epochs_entropy(run_dir)
+    entropies = extract_epochs_entropy(scenario_dir, run_id, num_clients, num_rounds)
 
     client_to_energy_evolution_map = {}
-    for i in range(10):
-        client_to_energy_evolution_map[f"client_{i}"] = extract_energies(os.path.join(run_dir, f"client{i}.logs"))
+    for client_id in range(num_clients):
+        client_to_energy_evolution_map[f"client_{client_id}"] = extract_energies(scenario_dir, run_id, client_id)
 
     #print(client_to_energy_evolution_map)
 
@@ -114,8 +116,12 @@ def analyse_run(run_dir):
     }
 
 def analyse_scenario(scenario_dir):
-    reptition_to_result_map = { repetition_dir : analyse_run(os.path.join(scenario_dir,repetition_dir)) 
-                                for repetition_dir in os.listdir(scenario_dir) }
+    num_servers = len([f for f in scenario_dir.rglob('*server*')   if f.is_file()])
+    num_clients = len([f for f in scenario_dir.rglob('*1_client*')   if f.is_file()])
+
+    reptition_to_result_map = { run_id : analyse_run(scenario_dir, run_id, num_clients) 
+                                for run_id in range(num_servers) }
+    
     return {k:v for k,v in reptition_to_result_map.items() if k is not None}
         
 

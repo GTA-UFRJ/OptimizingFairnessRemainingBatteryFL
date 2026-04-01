@@ -13,7 +13,7 @@ services:
       # Mapeamento dinâmico baseado nas variáveis do .env
       - ./logs/fixed_${FIXED_ROUNDS}_variable_${VARIABLE_ROUNDS}:/app/logs/fixed_${FIXED_ROUNDS}_variable_${VARIABLE_ROUNDS}
     command: >
-      sh -c "python -u fed_server.py ${NUM_CLIENTS} ${FIXED_ROUNDS} ${VARIABLE_ROUNDS} > /app/logs/fixed_${FIXED_ROUNDS}_variable_${VARIABLE_ROUNDS}/server.logs 2>&1"
+      sh -c "python -u fed_server.py ${NUM_CLIENTS} ${FIXED_ROUNDS} ${VARIABLE_ROUNDS} > /app/logs/fixed_${FIXED_ROUNDS}_variable_${VARIABLE_ROUNDS}/$i_server.logs 2>&1"
   
   # Template base para os clientes usando YAML Anchors
   client-0: &client-template
@@ -31,7 +31,7 @@ services:
     depends_on:
       - server
     command: >
-      sh -c "python -u fed_client.py $$CLIENT_ID > /app/logs/fixed_${FIXED_ROUNDS}_variable_${VARIABLE_ROUNDS}/client$$CLIENT_ID.log 2>&1"
+      sh -c "python -u fed_client.py $$CLIENT_ID > /app/logs/fixed_${FIXED_ROUNDS}_variable_${VARIABLE_ROUNDS}/$i_client$$CLIENT_ID.log 2>&1"
 
   client-1:
     <<: *client-template

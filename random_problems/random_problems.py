@@ -170,7 +170,7 @@ if __name__ == "__main__":
         log = (sys.argv[2] == '1')
     else:
         log = True
-    num_executions = 10
+    num_executions = 5
 
     max_time = 25
     min_epochs = num_clients*(9-fixed_epochs)

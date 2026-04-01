@@ -127,7 +127,7 @@ if __name__ == "__main__":
     print(f"Fixed epochs = {fixed_epochs}")
     print(f"Variable epochs = {variable_epochs}")
 
-    config = ServerConfig(num_rounds=10)
+    config = ServerConfig(num_rounds=5)
 
     try:
         start_server(

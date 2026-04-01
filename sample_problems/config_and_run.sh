@@ -26,3 +26,5 @@ if [ -f "logs/case$1.txt" ]; then
 else
   echo "Erro: O arquivo logs/case$1.txt não foi gerado. Verifique os logs do Docker."
 fi
+
+rm -rf logs/*

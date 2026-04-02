@@ -179,7 +179,7 @@ cd results_random_problems
 bash config_and_run.sh
 ```
 
-Este comando irá apenas gerar no diretório `results_random_problems/figures` arquivos de imagem (`.png`) com os resultados do Experimento 1 do artigo. Apesar desses gráficos do artigo terem sido obtidos utilizando os scripts em `random_problems` **neste tutorial, apenas poucas rodadas foram executadas**. Volte para a raiz do repositório: `cd ..`
+Este comando irá apenas gerar no diretório `results_random_problems/figures` 4 arquivos de imagem (`.png`) com os resultados do Experimento 1 do artigo. Apesar desses gráficos do artigo terem sido obtidos utilizando os scripts em `random_problems` **neste tutorial, apenas poucas rodadas foram executadas**. Volte para a raiz do repositório: `cd ..`
 
  ## Parte 4 - Geração dos dados para o FL
 

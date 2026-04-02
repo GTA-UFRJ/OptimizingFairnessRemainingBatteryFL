@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Use your custom style
-plt.style.use('~/guiaraujo.mplstyle')
+plt.style.use('guiaraujo.mplstyle')
 
 solvers = ["WF","FedAvg","PropEnerg","PropEffic"]
 times_soc_10_to_40 = [1.565, 0.087, 0.097, 0.116]

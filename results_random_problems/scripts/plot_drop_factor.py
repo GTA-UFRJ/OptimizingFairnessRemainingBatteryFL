@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Use your custom style
-plt.style.use('~/guiaraujo.mplstyle')
+plt.style.use('guiaraujo.mplstyle')
 
 solvers = ["WF","FedAvg","PropEnerg","PropEffic"]
 drop_factor_10_to_40 = [1.53, 1.79, 1.80, 1.79]

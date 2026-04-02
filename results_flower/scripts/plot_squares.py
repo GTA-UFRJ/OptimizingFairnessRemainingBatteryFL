@@ -26,7 +26,7 @@ def get_square(x,y,color):
     return rect, lims
 
 def plot_squares(scenario_params:dict,lims, path_to_save):
-    plt.style.use('~/guiaraujo.mplstyle')
+    plt.style.use('guiaraujo.mplstyle')
     plt.tight_layout()
     fig, ax = plt.subplots(figsize=(12,9))
     for params in scenario_params.values():

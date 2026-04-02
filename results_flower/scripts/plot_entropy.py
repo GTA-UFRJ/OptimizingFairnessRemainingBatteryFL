@@ -6,7 +6,7 @@ from utils import print_dict_struct
 from pprint import pprint
 
 def plot_entropy(scenario_params:dict, save_path:str):
-    plt.style.use('~/guiaraujo.mplstyle')
+    plt.style.use('guiaraujo.mplstyle')
     plt.figure(figsize=(12,9))
 
     for scenario, params in scenario_params.items():

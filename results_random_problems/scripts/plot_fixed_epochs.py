@@ -9,7 +9,7 @@ energy_drop_factor_error = np.array([0.02,0.01,0.015,0.01,0.01,0.01])
 energy_stdev = np.array([4415,4493,4535,4582,4674,4718])
 energy_stdev_error = np.array([45,45,43,47,42,40])
 
-plt.style.use('~/guiaraujo.mplstyle')
+plt.style.use('guiaraujo.mplstyle')
 plt.rcParams['axes.spines.right'] = True
 #f = plt.figure(figsize=(12,9),dpi=300.0)
 fig, ax1 = plt.subplots(figsize=(12,9),dpi=300.0)
@@ -30,4 +30,4 @@ ax2.errorbar(a, energy_stdev, energy_stdev_error, color=color)
 ax2.tick_params(axis='y', labelcolor=color)
 
 fig.tight_layout()
-fig.savefig("plots/fixed_epochs.png")
+fig.savefig("figures/fixed_epochs.png")

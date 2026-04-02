@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Use your custom style
-plt.style.use('~/guiaraujo.mplstyle')
+plt.style.use('guiaraujo.mplstyle')
 
 solvers = ["WF","FedAvg","PropEnerg","PropEffic"]
 stdev_soc_10_to_40 = [6385,6751,6612,6733]
@@ -27,5 +27,5 @@ ax.set_ylabel("Desvio padrão da energia")
 ax.set_ylim(6000,7000)
 
 plt.tight_layout()
-plt.savefig("plots/stdev_soc.png", dpi=300)
+plt.savefig("figures/stdev_soc.png", dpi=300)
 plt.close()

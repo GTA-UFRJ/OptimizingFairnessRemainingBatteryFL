@@ -1,0 +1,42 @@
+# Font settings                                                                                                                  
+font.size: 25
+axes.labelsize: 25
+xtick.labelsize: 25
+ytick.labelsize: 25
+legend.fontsize: 25
+
+# Line and error bar settings
+lines.linewidth: 3
+errorbar.capsize: 7
+#errorbar.capthick: 3
+#errorbar.linewidth: 3
+lines.solid_capstyle: projecting
+
+# Bar settings
+patch.linewidth: 3
+patch.facecolor: gray
+#errorbar.ecolor: black      
+
+# Spines (axis lines) settings
+axes.spines.top: False
+axes.spines.right: False
+axes.spines.bottom: True
+axes.spines.left: True
+axes.linewidth: 3
+
+# Figure title settings (commented out if you do not want a title)
+#axes.titlesize: 25
+
+# Legend settings
+legend.frameon: False
+#legend.loc: lower right
+
+# Limits and ticks (adjust in code if dynamic)
+ytick.major.width: 3
+xtick.major.width: 3
+
+# Seve figure settings
+savefig.dpi: 300
+savefig.format: png
+#savefig.bbox.inches: tight
+figure.dpi: 300

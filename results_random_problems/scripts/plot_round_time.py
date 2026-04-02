@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Use your custom style
-plt.style.use('~/guiaraujo.mplstyle')
+plt.style.use('guiaraujo.mplstyle')
 
 solvers = ["WF","FedAvg","PropEnerg","PropEffic"]
 times_10_to_40 = [23.6, 12.91, 17.9, 14.7]
@@ -27,5 +27,5 @@ ax.set_ylabel("Tempo da rodada (s)")
 #ax.set_ylim(4000,5000)
 
 plt.tight_layout()
-plt.savefig("plots/round_time.png", dpi=300)
+plt.savefig("figures/round_time.png", dpi=300)
 plt.close()

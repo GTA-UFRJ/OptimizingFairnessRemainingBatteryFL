@@ -12,7 +12,7 @@ a = np.array([10,100,1000,10000])
 WF = np.array([0.000349581241607666, 0.0033124613761901854, 0.04533381938934326, 0.6155314064025879])
 WF_error = np.array([1.2817716157648559e-05, 9.62231709406005e-05, 0.0007763176070095852, 0.00871800746924831])
 
-plt.style.use('~/guiaraujo.mplstyle')
+plt.style.use('guiaraujo.mplstyle')
 f = plt.figure(figsize=(12,9),dpi=300.0)
 
 lines = [None]
@@ -26,4 +26,4 @@ plt.yscale('log')
 plt.ylim([10e-5,10])
 plt.legend(handles=lines)
 #plt.show()
-f.savefig("plots/scalability.png")
+f.savefig("figures/scalability.png")

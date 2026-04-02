@@ -17,7 +17,7 @@ cp -r ../data/MNIST .
 
 for i in $(seq 1 $NUM_RUNS); do
     sudo FIXED_ROUNDS=$FIXED_ROUNDS VARIABLE_ROUNDS=$VARIABLE_ROUNDS RUN=$i docker compose -f compose.yaml up --build
-    cat $LOGDIR/server.log
+    cat $LOGDIR/${i}_server.logs
     sudo docker compose -f compose.yaml down
 done
 

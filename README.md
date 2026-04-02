@@ -127,7 +127,47 @@ bash config_and_run.sh
 
 A máquina irá executar apenas 5 repetições de um problema de otimização. O problema em questão possui parâmetros gerados aleatoriamente. O objetivo é apenas **ilustrar** como os resultados do artigo foram gerados.
 
-Nos logs esperados, é possível observar parâmetros importantes de cada repetição:
+Resumo dos logs esperados (apenas últimas linhas):
+
+```bash
+...
+-----------------------------
+Water-Filling
+Optimization time = 0.0006668567657470703 +- 0.00022875607141030073s
+Round time = 186.26949230088786 +- 64.2352658267825s
+Energy = 65344.32700645474 +- 6049.5851125484505s
+Energy drop factor = 0.01773589863076208 +- 0.001905005133131351s
+Utility = 95.7056272200659 +- 0.8503643232312937s
+Gap = 0.3764027472198499 +- 0.04269636171085652s
+Energy std. dev. = 10817.802529960314 +- 771.8191591187751s
+-----------------------------
+Equal number of rounds
+Execution time = 4.711151123046875e-05 +- 4.046062810028164e-06s
+Round time = 197.95517744766795 +- 64.23538452282517s
+Energy = 65306.27273220001 +- 6049.897633635618s
+Energy drop factor = 0.018310633116295792 +- 0.0018599255948579143s
+Utility = 95.64558593545496 +- 0.8534294197512975s
+Gap = 0.3688981733895055 +- 0.04253268502596688s
+Energy std. dev. = 11265.348116823223 +- 798.8560930979041s
+-----------------------------
+Proportional to initial energy
+Execution time = 5.278587341308594e-05 +- 3.2537010806681493e-06s
+Round time = 213.42836710860556 +- 63.541145185433294s
+Energy = 65302.15650857845 +- 6038.237258067017s
+Energy drop factor = 0.018363790734280606 +- 0.0016715601488812761s
+Utility = 95.67112320958726 +- 0.8504743438504588s
+Gap = 0.36428339882233485 +- 0.041707144737293256s
+Energy std. dev. = 11059.317083351216 +- 792.8897426667343s
+-----------------------------
+Proportional to device efficiency
+Execution time = 5.7649612426757815e-05 +- 1.8886061041282134e-06s
+Round time = 225.93765223650195 +- 63.938271065948285srepetição
+Energy = 65316.85825937967 +- 6052.531772450024s
+Energy drop factor = 0.01815281831592186 +- 0.0018861655360560862s
+Utility = 95.64560283425389 +- 0.8514220924603362s
+Gap = 0.3693496345155407 +- 0.043304968694702656s
+Energy std. dev. = 11282.148916719874 +- 806.8161965918118s
+```
 
 Para finalizar, volte para a raiz do repositório: `cd ..`
 

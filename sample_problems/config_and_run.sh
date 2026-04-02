@@ -14,7 +14,7 @@ cp -r ../wf_solver .
 
 # 3. Executa o docker compose
 # Se você realmente precisa rodar com sudo, a forma correta de passar a variável é usando o 'env'
-sudo env CASE=$1 docker compose up --build 
+sudo env CASE=$1 docker compose up --build --force-recreate --remove-orphans 
 
 # 4. Limpa o contexto de build
 rm -rf wf_solver
@@ -26,5 +26,3 @@ if [ -f "logs/case$1.txt" ]; then
 else
   echo "Erro: O arquivo logs/case$1.txt não foi gerado. Verifique os logs do Docker."
 fi
-
-rm -rf logs/*

@@ -1,5 +1,5 @@
 from math import floor, ceil
-from numpy import math
+import math
 from time import time
 from scipy import stats
 

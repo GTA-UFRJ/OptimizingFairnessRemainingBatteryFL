@@ -1,4 +1,4 @@
-import numpy as np
+import math
 
 def _print(text):
     global log
@@ -63,7 +63,7 @@ class Client:
     )->tuple:    # rtype: (Ui, Ti) = (utility, time)
 
         self.Ni = self._compute_Ni(csi)
-        Ui = np.math.log10(1+ri/self.Ni) # utility
+        Ui = math.log10(1+ri/self.Ni) # utility
 
         Ti = csi*self.tau_i + self.ui + self.di - ri*self.tau_i # complete round time
 

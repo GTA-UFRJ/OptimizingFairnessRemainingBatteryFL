@@ -79,7 +79,7 @@ def main():
             fi=fi, 
             P_down_avg=P_down_avg, 
             Pi=Pi, 
-            time_budget=defaults["time_budget"], 
+            max_time=defaults["time_budget"], 
             ui=defaults["ui"], 
             di=defaults["di"]
         )

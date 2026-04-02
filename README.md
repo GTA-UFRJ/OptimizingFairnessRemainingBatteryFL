@@ -67,8 +67,52 @@ Execute o caso 2 como exemplo:
 bash config_and_run.sh 2
 ```
 
-Logs esperados no terminal:
+**Resumo** dos logs esperados no terminal:
 
+```bash
+---------------
+Client 1
+Num epochs: 27.33220709443426
+Reduced num epochs: 8.66779290556574
+Utility: 2.0187219910308795e-06
+Time: 1351.386216246371 s
+Energy before: 279720.0 J
+Energy consumed by training: 4.099831064165139 J
+Energy consumed base: 5.51448 J
+Energy recharged: 0 J
+Total energy variation: -9.61431106416514 J
+Energy after: 279710.3856889358 J
+---------------
+Client 2
+Num epochs: 31.333896452782877
+Reduced num epochs: 4.666103547217123
+Utility: 1.4819182654137439e-06
+Time: 1340.66308656708 s
+Energy before: 205128.0 J
+Energy consumed by training: 4.700084467917431 J
+Energy consumed base: 4.043951999999999 J
+Energy recharged: 0 J
+Total energy variation: -8.74403646791743 J
+Energy after: 205119.25596353208 J
+---------------
+Client 3
+Num epochs: 31.333896452782877
+Reduced num epochs: 4.666103547217123
+Utility: 2.593443200072707e-06
+Time: 394.47592719431907 s
+Energy before: 117216.0 J
+Energy consumed by training: 4.700084467917431 J
+Energy consumed base: 4.043951999999999 J
+Energy recharged: 0 J
+Total energy variation: -8.74403646791743 J
+Energy after: 117207.25596353208 J
+TOTAL ENERGY: 602036.8976159999
+INITIAL ENERGY: 602064.0
+TOTAL FAIRNESS: 15.827669523034732
+ENERGY GAP TO MAX: 0.2825473198725848
+ENERGY STANDARD DEVIATION: 202065.99652881935
+ELAPSED TIME: 1.3113021850585938e-05
+```
 
 Para finalizar, volte para a raiz do repositório: `cd ..`
 

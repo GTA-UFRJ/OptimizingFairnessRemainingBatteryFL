@@ -13,8 +13,8 @@ Os autores reivindicam os seguintes selos científicos para este artefato:
 ## Requisitos 
 
 * Sistema Operacional: Debian 12 ou Ubuntu 24
-* CPU mínima: 4 núcleos. ... GHz
-* RAM mínima: 4GB
+* CPU mínima: 4 núcleos. 2 GHz
+* RAM mínima: 4 GB
 * Espaço em disco mínimo usado: ...GB
 
 ## Dependências
@@ -178,7 +178,7 @@ Para finalizar, volte para a raiz do repositório: `cd ..`
 cd results_random_problems
 bash config_and_run.sh
 ```
-
+Intel(R) Xeon(R) Gold 5416SIntel(R) Xeon(R) Gold 5416S
 Este comando irá apenas gerar no diretório `results_random_problems/figures` 4 arquivos de imagem (`.png`) com os resultados do Experimento 1 do artigo. Apesar desses gráficos do artigo terem sido obtidos utilizando os scripts em `random_problems` **neste tutorial, apenas poucas rodadas foram executadas**. Volte para a raiz do repositório: `cd ..`
 
  ## Parte 4 - Geração dos dados para o FL

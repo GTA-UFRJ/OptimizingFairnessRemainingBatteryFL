@@ -2,10 +2,12 @@
 __pycache__
 logs/random*
 backups
-data/MNIST
+data/MNIST/
 flower/reports
-flower/initial_clients
-flower/logs*
+flower/MNIST/
+flower/wf_solver/
+flower/initial_clients/
+flower/logs/
 flower/fixed_*
 results_flower/results.json
 results_flower/*.pkl

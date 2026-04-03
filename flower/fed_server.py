@@ -30,6 +30,7 @@ def weighted_average(metrics: List[Tuple[int, Metrics]]) -> Metrics:
         "val_loss": sum(val_losses) / sum(examples),
         "val_accuracy": sum(val_accuracies) / sum(examples),
     }
+
 class ModFedAvg(FedAvg):
     def __init__(
         self, net, num_min_epochs, time_budget, fixed_epochs, num_clients
@@ -95,10 +96,9 @@ class ModFedAvg(FedAvg):
                 self.time_budget,
                 self.fixed_epochs,
             )
-            self.optimizer.solve()
+            clients_rounds = self.optimizer.solve()
+            print(f"Round {server_round} - Computed epochs for clients: {clients_rounds}")
             # self.optimizer._report(force_print=True) # Descomente se quiser os logs do solver
-            
-            clients_rounds = [self.optimizer.csi - r for r in self.optimizer.r_list]
 
             # 3. Calcula e salva os resultados para serem enviados na PRÓXIMA rodada
             list_of_selected_clients = []
@@ -112,9 +112,22 @@ class ModFedAvg(FedAvg):
                     list_of_selected_clients.append(cid)
                     
             print(f"Round {server_round} - Selected clients for next round: {list_of_selected_clients}")
+        
+        # CORREÇÃO: Filtrar os resultados de clientes que não treinaram (num_examples == 0)
+        # Isso garante que clientes que receberam 0 épocas não quebrem o FedAvg
+        valid_results = [
+            (client_proxy, fit_res) 
+            for client_proxy, fit_res in results 
+            if fit_res.num_examples > 0
+        ]
 
+        if not valid_results:
+            print(f"Round {server_round} - Nenhum resultado válido para agregar (todos num_examples == 0).")
+            # Se ninguém treinou, não podemos agregar. Retornamos None.
+            return None, {}
+        
         # 4. Continua com a agregação padrão dos pesos do modelo (FedAvg)
-        return super().aggregate_fit(server_round, results, failures)
+        return super().aggregate_fit(server_round, valid_results, failures)
 
 if __name__ == "__main__":
 

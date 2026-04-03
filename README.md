@@ -2,7 +2,19 @@
 
 Manual de artefatos para o código documentado referente ao artigo aceito no SBRC 2026
 
-## Selos Considerados
+# Estrutura do readme.md
+
+O repositório está organizado da seguinte forma
+
+* `wf_solver`: biblioteca Python instalável com PIP que implementa a solução do problema de otimização proposto no artigo.
+* `sample_problems`: soluciona alguns problemas de otimziação com parâmetros pré-definidos e ajustáveis pelo desenvolvedor, auxiliando na validação e na criação de intuição sobre o problema, conforme será discutido na [Parte 1](#teste-mínimo) deste tutorial
+* `random_problems`: cria problemas aleatórios e os resolve, gerando métricas análogas às que foram incluídas no Experimento 1 descrito no artigo, mas em menor escala, conforme  será discutido na [Parte 2](#reivindicação-1---solução-de-múltiplos-problemas-com-parâmetros-aleatórios) deste tutorial
+* `results_random_problems`: plota as figuras do artigo, de acordo com métricas printadas na execução do `random_problems`, conforme será discutido na [Parte 3](#reivindicação-2---reprodução-dos-resultados-dos-problemas-aleatórios-conforme-experimento-1-do-artigo) deste tutorial
+* `data`: geração dos dados para o treinamento de aprendizado federado com MNIST, conforme será discutido na [Parte 4](#reivindicação-3---geração-dos-dados-para-o-fl) deste tutorial
+* `flower`: executa treinamentos do Flower com a proposta do artigo, gerando resultados análogos, mas em menor escala, conforme  será discutido na [Parte 5](#reivindicação-4---integração-com-o-flower) deste tutorial
+* `results_flower`: plota as figuras do artigo, de acordo com métricas printadas na execução do `flower`, conforme será discutido na [Parte 6](#reivindicação-5---reprodução-dos-resultados-da-integração-com-o-flower-conforme-experimento-2-do-artigo) deste tutorial
+
+# Selos Considerados
 
 Os autores reivindicam os seguintes selos científicos para este artefato:
 * Artefatos Disponíveis (SeloD);
@@ -10,32 +22,30 @@ Os autores reivindicam os seguintes selos científicos para este artefato:
 * Artefatos Sustentáveis (SeloS);
 * Experimentos Reprodutíveis (SeloR);
 
-## Requisitos 
+# Informações básicas 
+
+Os requisitos do ambiente de experimentação são os seguintes:
 
 * Sistema Operacional: Debian 12 ou Ubuntu 24
 * CPU mínima: 4 núcleos. 2 GHz
-* RAM mínima: 4 GB
-* Espaço em disco mínimo usado: ...GB
+* RAM mínima: 4 GB 
+* Espaço em disco mínimo : 50 GB
 
-## Dependências
+As dependências são as seguintes:
 
 Caso ainda não tenha instalado o Docker Engine (com o Docker Compose), clique [aqui](https://docs.docker.com/engine/install/) para instalar. A versão mínima exigida é a 29.1.3.
 
-## Preocupações com segurança
+# Preocupações com segurança
 
 A execução dos experimentos em contêineres **não apresenta riscos de segurança conhecidos**. O uso do sudo é exigido pelo pelo Docker durante os testes. Os comandos Docker são executados por padrão com sudo, mas é possível que o usuário possua uma instalação do Docker configurada para execução de comandos sem sudo.
 
-## Organziação dos diretórios
+# Instalação
 
-* `wf_solver`: biblioteca Python instalável com PIP que implementa a solução do problema de otimização proposto no artigo.
-* `sample_problems`: soluciona alguns problemas de otimziação com parâmetros pré-definidos e ajustáveis pelo desenvolvedor, auxiliando na validação e na criação de intuição sobre o problema, conforme será discutido na [Parte 1](#parte-1---problemas-de-exemplo) deste tutorial
-* `random_problems`: cria problemas aleatórios e os resolve, gerando métricas análogas às que foram incluídas no Experimento 1 descrito no artigo, mas em menor escala, conforme  será discutido na [Parte 2](#parte-2---problemas-aleatórios) deste tutorial
-* `results_random_problems`: plota as figuras do artigo, de acordo com métricas printadas na execução do `random_problems`, conforme será discutido na [Parte 3](#parte-3---resultados-dos-problemas-aleatórios) deste tutorial
-* `data`: geração dos dados para o treinamento de aprendizado federado com MNIST, conforme será discutido na [Parte 4](#parte-4---geração-dos-dados-para-o-fl) deste tutorial
-* `flower`: executa treinamentos do Flower com a proposta do artigo, gerando resultados análogos, mas em menor escala, conforme  será discutido na [Parte 5](#parte-5---integração-com-o-flower) deste tutorial
-* `results_flower`: plota as figuras do artigo, de acordo com métricas printadas na execução do `flower`, conforme será discutido na [Parte 6](#parte-6---resultados-da-integração-com-o-flower) deste tutorial
+Após ter instalado o Docker engine, conforme indicado na parte de infromações básicas, basta seguir os passos a seguir. Todos os procedimentos são realziados usando contêineres Docker, evitando instalações complicadas. 
 
- ## Parte 1 - Problemas de exemplo
+# Teste mínimo 
+
+Esta seção apresenta como resolver alguns problema de otimziação de exemplo
 
 Acesse o diretório `sample_problems`
 
@@ -116,7 +126,9 @@ ELAPSED TIME: 1.3113021850585938e-05
 
 Para finalizar, volte para a raiz do repositório: `cd ..`
 
- ## Parte 2 - Problemas aleatórios
+# Experimentos
+
+## Reivindicação 1 - Solução de múltiplos problemas com parâmetros aleatórios
 
 Execute os seguintes comandos
 
@@ -172,7 +184,7 @@ Energy std. dev. = 11282.148916719874 +- 806.8161965918118s
 Para finalizar, volte para a raiz do repositório: `cd ..`
 
 
- ## Parte 3 - Resultados dos problemas aleatórios
+ ## Reivindicação 2 - Reprodução dos resultados dos problemas aleatórios, conforme experimento 1 do artigo
 
 ```bash
 cd results_random_problems
@@ -181,7 +193,7 @@ bash config_and_run.sh
 Intel(R) Xeon(R) Gold 5416SIntel(R) Xeon(R) Gold 5416S
 Este comando irá apenas gerar no diretório `results_random_problems/figures` 4 arquivos de imagem (`.png`) com os resultados do Experimento 1 do artigo. Apesar desses gráficos do artigo terem sido obtidos utilizando os scripts em `random_problems` **neste tutorial, apenas poucas rodadas foram executadas**. Volte para a raiz do repositório: `cd ..`
 
- ## Parte 4 - Geração dos dados para o FL
+ ## Reivindicação 3 - Geração dos dados para o FL
 
 Acesse o diretório `cd data` 
 
@@ -232,41 +244,155 @@ O arquivo `client_X_trainloader.pth` contém os batches usados para o treinament
 
 A próxima etapa utilizará esses dados. Execute `cd ..` para voltar à raiz do repositório 
 
- ## Parte 5 - Integração com o Flower
+## Alerta sobre próxima etapa
+
+
+O script seguinte irá criar containeres na máquina para executar o aprendizado federado com **5 clientes (ao invés dos 10 do artigo)** e um servidor. 
+
+O experimento será repetido **3 vezes** para garantir significância estatística. No artigo, o experimento é repetido mais vezes. Entretanto, o objetivo deste artefato é apenas demonstrar a funcionalidade. Se quiser mudar o número de rodadas, basta passar um terceiro argumento (opicional) para o comando.
+
+O experimento utiliza **apenas 5 rodadas globais ao invés de 10** para agilizar o processo. A learning rate é maior para garantir a convergência em menos rodadas. Dessa forma, é compreensível que os resultados obtidos aqui **não serão idênticos aos do artigo**, mas podem ser ajustados para execuções mais longas, se necessário. 
+
+Mesmo com as reduções na escala do experimento, **cada repetição pode demorar 5 minutos (totalizando 15 minutos)** 
+
+Além disso, o uso de recursos da máquina pode ultrapassar 400% de uso de CPU e uso de quase 4GB de memória.  
+
+## Reivindicação 4 - Integração com o Flower
 
 Esta etapa utiliza os dados gerados na etapa anterior
 
 ```bash
 cd flower
-bash config_and_run.sh 0 100
+bash config_and_run.sh 0 50
 ```
 
-Esse script irá criar containeres na máquina para executar o aprendizado federado com dez clientes e um servidor. O servidor aloca 100 épocas de forma variável entre os 10 clientes de forma a maximizar a justiça no nível de energia ao final de cada rodada. São gerados arquivos de log em `logs/fixed_0_variable_100`, que serão usados na próxima parte. 
+O servidor aloca 50 épocas de forma variável entre os 10 clientes de forma a maximizar a justiça no nível de energia ao final de cada rodada. São gerados arquivos de log em `logs/fixed_0_variable_50`, que serão usados na próxima parte. 
 
-O experimento será repetido 4 vezes para garantir significância estatística. No artigo, o experimento é repetido mais vezes. Entretanto, o objetivo deste artefato é apenas demonstrar a funcionalidade. Se quiser mudar o número de rodadas, basta passar um terceiro argumento (opicional) para o comando.
+Exemplo de **um trecho** do que aparece no terminal:
 
-O experimento utiliza apenas 5 rodadas globais para agilizar o processo. A learning rate é maior para garantir a convergência em menos rodadas. Dessa forma, é compreensível que os resultados obtidos aqui **não serão idênticos aos do artigo**, mas podem ser ajustados para execuções mais longas, se necessário. 
+```bash
+...
+[+] up 9/9
+ ✔ Image fed-client:latest     Built                                                                                   4.0s
+ ✔ Image fed-server:latest     Built                                                                                   4.0s
+ ✔ Network flower_default      Created                                                                                 0.0s
+ ✔ Container flower_server     Started                                                                                 4.5s
+ ✔ Container flower-client-0-1 Started                                                                                 0.9s
+ ✔ Container flower_client_2   Started                                                                                 1.0s
+ ✔ Container flower_client_4   Started                                                                                 1.0s
+ ✔ Container flower_client_3   Started                                                                                 1.1s
+ ✔ Container flower_client_1   Started                                                                                 0.9s
+Aguardando o servidor finalizar a execução do experimento 1...
+0
+ 
+--> Visualizando log do servidor (Execução 1):
+Config
+Num clients = 5
+Fixed epochs = 50
+Variable epochs = 0
+INFO :      Starting Flower server, config: num_rounds=5, no round_timeout
+INFO :      Flower ECE: gRPC server running (5 rounds), SSL is disabled
+INFO :      [INIT]
+INFO :      Using initial global parameters provided by strategy
+INFO :      Starting evaluation of initial global parameters
+INFO :      Evaluation returned no results (`None`)
+INFO :      
+INFO :      [ROUND 1]
+INFO :      configure_fit: strategy sampled 5 clients (out of 5)
+INFO :      aggregate_fit: received 5 results and 0 failures
+0.6682246376811595
+INFO :      configure_evaluate: strategy sampled 5 clients (out of 5)
+INFO :      aggregate_evaluate: received 5 results and 0 failures
+WARNING :   No evaluate_metrics_aggregation_fn provided
+INFO :      
+INFO :      [ROUND 2]
+INFO :      configure_fit: strategy sampled 5 clients (out of 5)
+INFO :      aggregate_fit: received 5 results and 0 failures
+0.7654106280193237
+INFO :      configure_evaluate: strategy sampled 5 clients (out of 5)
+INFO :      aggregate_evaluate: received 5 results and 0 failures
+INFO :      
+INFO :      [ROUND 3]
+INFO :      configure_fit: strategy sampled 5 clients (out of 5)
+INFO :      aggregate_fit: received 5 results and 0 failures
+0.814927536231884
+INFO :      configure_evaluate: strategy sampled 5 clients (out of 5)
+INFO :      aggregate_evaluate: received 5 results and 0 failures
+INFO :      
+INFO :      [ROUND 4]
+INFO :      configure_fit: strategy sampled 5 clients (out of 5)
+INFO :      aggregate_fit: received 5 results and 0 failures
+0.8417391304347828
+INFO :      configure_evaluate: strategy sampled 5 clients (out of 5)
+INFO :      aggregate_evaluate: received 5 results and 0 failures
+INFO :      
+INFO :      [ROUND 5]
+INFO :      configure_fit: strategy sampled 5 clients (out of 5)
+INFO :      aggregate_fit: received 5 results and 0 failures
+0.8426086956521739
+INFO :      configure_evaluate: strategy sampled 5 clients (out of 5)
+INFO :      aggregate_evaluate: received 5 results and 0 failures
+INFO :      
+INFO :      [SUMMARY]
+INFO :      Run finished 5 round(s) in 445.88s
+INFO :          History (loss, distributed):
+INFO :                  round 1: 34.95733871459961
+INFO :                  round 2: 23.822206115722658
+INFO :                  round 3: 18.69872169494629
+INFO :                  round 4: 16.39220275878906
+INFO :                  round 5: 14.215354919433594
+INFO :          History (metrics, distributed, fit):
+INFO :          {'train_accuracy': [(1, 0.6671769323671498),
+INFO :                              (2, 0.7738858695652175),
+INFO :                              (3, 0.8225905797101449),
+INFO :                              (4, 0.8473309178743962),
+INFO :                              (5, 0.8488949275362319)],
+INFO :           'train_loss': [(1, 148.56778549111408),
+INFO :                          (2, 106.01139379929805),
+INFO :                          (3, 85.47963189366071),
+INFO :                          (4, 73.48955747042446),
+INFO :                          (5, 70.66290411223535)],
+INFO :           'val_accuracy': [(1, 0.6682246376811595),
+INFO :                            (2, 0.7654106280193237),
+INFO :                            (3, 0.814927536231884),
+INFO :                            (4, 0.8417391304347828),
+INFO :                            (5, 0.8426086956521739)],
+INFO :           'val_loss': [(1, 37.79798569109129),
+INFO :                        (2, 27.877518030180447),
+INFO :                        (3, 22.70456433037053),
+INFO :                        (4, 19.27803971240486),
+INFO :                        (5, 19.032039684014045)]}
+INFO :      
+[+] down 7/7
+ ✔ Container flower_client_1   Removed                                                                                10.8s
+ ✔ Container flower_client_4   Removed                                                                                10.8s
+ ✔ Container flower_client_2   Removed                                                                                10.7s
+ ✔ Container flower_client_3   Removed                                                                                10.7s
+ ✔ Container flower-client-0-1 Removed                                                                                10.8s
+ ✔ Container flower_server     Removed                                                                                0.1s
+ ✔ Network flower_default      Removed                                                                                0.2s
+========================================
+ Iniciando Experimento 2 de 3
+========================================
+...
+```
 
 Após o treinamento anterior encerrar, repita o procedimento com o segunte comando:
 
 ```bash
-bash config_and_run.sh 100 0
+bash config_and_run.sh 50 0
 ```
 
-Nesse caso, o servidor distribui igualmente 100 épocas entre os clientes, de forma que cada um irá treinar por exatas 10 épocas. Os logs, nesse caso, serão gerados em `logs/fixed_100_variable_0`.
-
-Após o treinamento anterior encerrar, repita o procedimento com o segunte comando:
-
-```bash
-bash config_and_run.sh 50 50
-```
-
-Nesse caso, 50 épocas são divididas igualmente e outras 50 são alcoadas pelo algoritmo de otimização do servidor. Cada cliente treina por 5+x épocas, onde x é variável, gerando logs em `logs/fixed_50_variable_50`.
+Nesse caso, o servidor distribui igualmente 50 épocas entre os clientes, de forma que cada um irá treinar por exatas 10 épocas. Os logs, nesse caso, serão gerados em `logs/fixed_50_variable_0`.
 
 Fim da parte 5. `cd ..`
 
- ## Parte 6 - Resultados da integração com o Flower
+ ## Reivindicação 5 - Reprodução dos resultados da integração com o Flower, conforme experimento 2 do artigo
 
 Acesse `cd results_flower` e execute `bash config_and_run.sh`. Este script pega os logs gerados na parte 5 e gera gráficos similares aos do artigo no diretório `figures`
 
 Claro que os resultados serão diferentes pelo fato de que o treinamento foi feito com menos rodadas globais, além de que foram feitas menos repetições, modificando a significância estatística.
+
+# LICENSE 
+
+Leia o arquivo `LICENSE`, que contém a licença MIT.

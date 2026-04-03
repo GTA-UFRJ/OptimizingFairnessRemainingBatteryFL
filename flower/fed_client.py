@@ -1,3 +1,5 @@
+from time import sleep
+
 from flwr.client import NumPyClient, start_client
 from task import *
 import sys
@@ -59,6 +61,10 @@ class FlowerClient(NumPyClient):
         self.epochs = config.get('num_epochs', 1) 
         print(f"Received instruction to train for {self.epochs} epochs")
 
+        if self.epochs <= 0:
+            print("Received 0 epochs, skipping training and returning current metrics.")
+            return get_weights(net), 0, self.report.copy()  # Retorna os pesos atuais, 0 amostras e o relatório atual sem alterações
+
         # 2. Prepara e executa o treino
         set_weights(net, parameters)
         results = train(net, trainloader, testloader, epochs=self.epochs, batches=self.report['num_batches'])
@@ -89,7 +95,12 @@ if __name__ == "__main__":
     client_id = int(sys.argv[1])
     trainloader, testloader = load_data("data/MNIST/private_dataloaders_clear", client_id)
 
-    start_client(
-        server_address="server:7891",
-        client=FlowerClient().to_client(),
-    )
+    while True:
+        try:
+            sleep(10)
+            start_client(
+                server_address="172.17.0.1:7891",
+                client=FlowerClient().to_client(),
+            )
+        except Exception as e:
+            print(f"Connection error: {e}. Retrying in 10 seconds...")

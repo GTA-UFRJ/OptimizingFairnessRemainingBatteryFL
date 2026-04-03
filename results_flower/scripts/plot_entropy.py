@@ -36,19 +36,19 @@ if __name__ == "__main__":
         d = pickle.load(f)
 
     scenario_params = {
-        "fixed_100_variable_0_lr_001": {
-            "name": "k=1 (100 épocas fixas)",
+        "fixed_50_variable_0": {
+            "name": "k=1 (50 épocas fixas)",
             "color": "red",
             "sequence": None,
             "error": None
         },
-        "fixed_50_variable_50_lr_001": {
-            "name": "k=0,5 (50 épocas fixas)",
-            "color": "green",
-            "sequence": None,
-            "error": None
-        },
-        "fixed_0_variable_100_lr_001": {
+        #"fixed_25_variable_25": {
+        #    "name": "k=0,5 (25 épocas fixas)",
+        #    "color": "green",
+        #    "sequence": None,
+        #    "error": None
+        #},
+        "fixed_0_variable_50": {
             "name": "k=0 (0 épocas fixas)",
             "color": "blue",
             "sequence": None,

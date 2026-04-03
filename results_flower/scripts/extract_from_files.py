@@ -130,10 +130,9 @@ if __name__ == "__main__":
     results_dir = os.path.join(my_dir,"logs/")
 
     scenarios_to_results_map = {
-        "fixed_0_variable_100_lr_001":{},
-        "fixed_50_variable_50_lr_001":{},
-        #"fixed_90_variable_20_lr_001":{},
-        "fixed_100_variable_0_lr_001":{}
+        "fixed_0_variable_50":{},
+        #"fixed_25_variable_25":{},
+        "fixed_50_variable_0":{}
     }
 
     scenarios_list = scenarios_to_results_map.keys()

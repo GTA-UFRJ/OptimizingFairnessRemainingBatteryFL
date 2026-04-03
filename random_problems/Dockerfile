@@ -5,4 +5,4 @@ WORKDIR /app
 COPY wf_solver/ ./wf_solver/
 COPY random_problems.py .
 
-RUN pip install ./wf_solver/. scipy 
+RUN pip install --no-cache-dir ./wf_solver/. scipy 

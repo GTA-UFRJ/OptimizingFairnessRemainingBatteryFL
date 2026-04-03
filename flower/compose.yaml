@@ -5,28 +5,23 @@ services:
       dockerfile: server.dockerfile
     image: fed-server:latest
     container_name: flower_server
-    env_file:
-      - .env
     ports:
       - "7891:7891"
     volumes:
-      # Mapeamento dinâmico baseado nas variáveis do .env
       - ./logs/fixed_${FIXED_ROUNDS}_variable_${VARIABLE_ROUNDS}:/app/logs/fixed_${FIXED_ROUNDS}_variable_${VARIABLE_ROUNDS}
     command: >
       sh -c "python -u fed_server.py ${NUM_CLIENTS} ${FIXED_ROUNDS} ${VARIABLE_ROUNDS} > /app/logs/fixed_${FIXED_ROUNDS}_variable_${VARIABLE_ROUNDS}/${RUN}_server.logs 2>&1"
-  
-  # Template base para os clientes usando YAML Anchors
+
   client-0: &client-template
     build:
       context: .
       dockerfile: client.dockerfile
     image: fed-client:latest
-    env_file:
-      - .env
     environment:
       - CLIENT_ID=0
     volumes:
       - ./MNIST:/app/data/MNIST
+      - ./initial_clients:/app/initial_clients
       - ./logs/fixed_${FIXED_ROUNDS}_variable_${VARIABLE_ROUNDS}:/app/logs/fixed_${FIXED_ROUNDS}_variable_${VARIABLE_ROUNDS}
     depends_on:
       - server
@@ -56,33 +51,3 @@ services:
     container_name: flower_client_4
     environment:
       - CLIENT_ID=4
-
-  client-5:
-    <<: *client-template
-    container_name: flower_client_5
-    environment:
-      - CLIENT_ID=5
-
-  client-6:
-    <<: *client-template
-    container_name: flower_client_6
-    environment:
-      - CLIENT_ID=6
-
-  client-7:
-    <<: *client-template
-    container_name: flower_client_7
-    environment:
-      - CLIENT_ID=7
-
-  client-8:
-    <<: *client-template
-    container_name: flower_client_8
-    environment:
-      - CLIENT_ID=8
-
-  client-9:
-    <<: *client-template
-    container_name: flower_client_9
-    environment:
-      - CLIENT_ID=9

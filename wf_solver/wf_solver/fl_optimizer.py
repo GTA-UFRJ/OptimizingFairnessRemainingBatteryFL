@@ -40,3 +40,7 @@ class FlOptimizer(WaterFillingSolver):
                     is_log_active=True,
                 )
             )
+    
+    def solve(self):
+        super().solve()
+        return [self.csi - r for r in self.r_list]

@@ -1,6 +1,6 @@
 from typing import List, Tuple
 from pathlib import Path
-from flwr.common import Metrics, ndarrays_to_parameters
+from flwr.common import Metrics, ndarrays_to_parameters, FitIns
 from flwr.server import ServerConfig, start_server
 from flwr.server.strategy import FedAvg
 import json
@@ -57,74 +57,82 @@ class ModFedAvg(FedAvg):
         )
 
     def configure_fit(self, server_round, parameters, client_manager):
-        # 1. Obtém as configurações padrão (lista de clientes selecionados)
+        # 1. Obtém as configurações padrão
         config_fit_results = super().configure_fit(server_round, parameters, client_manager)
         
-        # 2. Injeta as instruções (num_epochs) para os clientes ANTES do treino
+        # Criamos uma nova lista para não sobrescrever a referência padrão
+        custom_config_fit_results = []
+        
+        # 2. Injeta as instruções exclusivas para cada cliente
         for client_proxy, fit_ins in config_fit_results:
-            # Na rodada 1, usa um valor padrão (ex: fixed_epochs / num_clients). 
-            # Nas próximas, usa o valor calculado no aggregate_fit da rodada anterior.
+            
             epochs = self.next_round_epochs.get(
                 client_proxy.cid, 
-                self.fixed_epochs / self.num_clients
+                (self.num_min_epochs + self.fixed_epochs) / self.num_clients
             )
-            fit_ins.config["num_epochs"] = epochs
             
-        return config_fit_results
+            # O SEGREDO AQUI: Criar uma cópia isolada da config padrão
+            client_config = fit_ins.config.copy()
+            client_config["num_epochs"] = epochs
+            
+            # Criar um NOVO objeto FitIns amarrado aos parâmetros originais, mas com a config individual
+            client_fit_ins = FitIns(parameters=fit_ins.parameters, config=client_config)
+            
+            custom_config_fit_results.append((client_proxy, client_fit_ins))
+
+        print(f"Round {server_round} - Configured clients with epochs: {[fit_ins.config['num_epochs'] for _, fit_ins in custom_config_fit_results]}")
+        
+        return custom_config_fit_results
 
     def aggregate_fit(self, server_round: int, results, failures):
-        if not results:
-            return super().aggregate_fit(server_round, results, failures)
-
+        
         if self.num_min_epochs == 0:
             for client_proxy, _ in results:
                 self.next_round_epochs[client_proxy.cid] = self.fixed_epochs / self.num_clients
-        else:
-            # 1. Lê os reports dos clientes APÓS o treino direto da memória
-            reports_list = []
-            cid_list = []
-            
-            for client_proxy, fit_res in results:
-                # fit_res.metrics contém exatamente o dicionário que o cliente retornou
-                reports_list.append(fit_res.metrics)
-                cid_list.append(client_proxy.cid)
+            return super().aggregate_fit(server_round, results, failures)
 
-            # 2. Executa o Otimizador
-            self.optimizer = FlOptimizer(
-                reports_list,
-                self.num_min_epochs,
-                self.time_budget,
-                self.fixed_epochs,
-            )
-            clients_rounds = self.optimizer.solve()
-            print(f"Round {server_round} - Computed epochs for clients: {clients_rounds}")
-            # self.optimizer._report(force_print=True) # Descomente se quiser os logs do solver
+        # 1. Lê os reports dos clientes APÓS o treino
+        reports_list = []
+        cid_list = []
 
-            # 3. Calcula e salva os resultados para serem enviados na PRÓXIMA rodada
-            list_of_selected_clients = []
-            for idx, num_epochs in enumerate(clients_rounds):
-                total = num_epochs + (self.fixed_epochs / self.num_clients)
-                cid = cid_list[idx]
-                
-                self.next_round_epochs[cid] = total
-                
-                if total > 0:
-                    list_of_selected_clients.append(cid)
-                    
-            print(f"Round {server_round} - Selected clients for next round: {list_of_selected_clients}")
+        print(f"Round {server_round} - Received reports from clients: {[fit_res.metrics for _, fit_res in results]}")
         
-        # CORREÇÃO: Filtrar os resultados de clientes que não treinaram (num_examples == 0)
-        # Isso garante que clientes que receberam 0 épocas não quebrem o FedAvg
+        for client_proxy, fit_res in results:
+            # fit_res.metrics contém exatamente o dicionário que o cliente retornou
+            reports_list.append(fit_res.metrics)
+            cid_list.append(client_proxy.cid)
+
+        # 2. Executa o Otimizador
+        self.optimizer = FlOptimizer(
+            reports_list,
+            self.num_min_epochs,
+            self.time_budget,
+            self.fixed_epochs,
+        )
+        clients_rounds = self.optimizer.solve()
+        # self.optimizer._report(force_print=True) # Descomente se quiser os logs do solver
+
+        # 3. Calcula e salva os resultados para serem enviados na PRÓXIMA rodada
+        for idx, num_epochs in enumerate(clients_rounds):
+            cid = cid_list[idx]
+            self.next_round_epochs[cid] = num_epochs + (self.fixed_epochs / self.num_clients)
+
+        print(f"Round {server_round} - Final epochs to be sent to clients in next round: {self.next_round_epochs}")
+                
+        print(f"Selected clients: {[cid for cid, total in self.next_round_epochs.items() if total > 0]}")
+        
+        # Agrega apenas os clientes que receberam mais de 0 épocas na rodada atual. 
+        # Os outros serão ignorados (mas continuam sendo considerados no cálculo do otimizador para as próximas rodadas).
+
         valid_results = [
             (client_proxy, fit_res) 
             for client_proxy, fit_res in results 
             if fit_res.num_examples > 0
         ]
 
-        if not valid_results:
-            print(f"Round {server_round} - Nenhum resultado válido para agregar (todos num_examples == 0).")
-            # Se ninguém treinou, não podemos agregar. Retornamos None.
-            return None, {}
+        print(f"Round {server_round} - Valid clients for aggregation in current round (num_examples > 0): {[client_proxy.cid for client_proxy, _ in valid_results]}")
+
+        assert len(valid_results) > 0, "No valid client results to aggregate. All clients received 0 epochs."
         
         # 4. Continua com a agregação padrão dos pesos do modelo (FedAvg)
         return super().aggregate_fit(server_round, valid_results, failures)

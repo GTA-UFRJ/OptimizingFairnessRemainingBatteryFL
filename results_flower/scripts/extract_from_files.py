@@ -52,12 +52,12 @@ def extract_epochs_entropy(scenario_dir, run_id, num_clients, num_rounds):
         with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
             text = f.read()
         # search for lines in the format Received report: {'num_epochs': 5.0} and transform to list of num_epochs
-        matches = re.findall(r"Received report:\s*\{[^}]*'num_epochs':\s*([0-9.+-eE]+)[^}]*\}", text)
+        matches = re.findall(r"(\d+\.?\d*)(?=\s+epochs)", text)
         if matches:
             client_index_to_num_epochs[client_id] = [float(x) for x in matches]
 
     round_index_to_epochs = {}    
-    for round_index in range(num_rounds): # assume 9 rounds
+    for round_index in range(num_rounds):
         for client_epochs in client_index_to_num_epochs.values():
             epochs = client_epochs[round_index]
             if round_index not in round_index_to_epochs:

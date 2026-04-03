@@ -253,7 +253,7 @@ O experimento será repetido **3 vezes** para garantir significância estatísti
 
 O experimento utiliza **apenas 5 rodadas globais ao invés de 10** para agilizar o processo. A learning rate é maior para garantir a convergência em menos rodadas. Dessa forma, é compreensível que os resultados obtidos aqui **não serão idênticos aos do artigo**, mas podem ser ajustados para execuções mais longas, se necessário. 
 
-Mesmo com as reduções na escala do experimento, **cada repetição pode demorar 5 minutos (totalizando 15 minutos)** 
+Mesmo com as reduções na escala do experimento, **cada repetição pode demorar uns 10 minutos (totalizando uns 30 minutos)** 
 
 Além disso, o uso de recursos da máquina pode ultrapassar 400% de uso de CPU e uso de quase 4GB de memória.  
 
@@ -376,6 +376,8 @@ INFO :
 ========================================
 ...
 ```
+
+Você pode olhar os logs em `logs/fixed_0_variable_50` para acompanhar o progresso do treinamento.
 
 Após o treinamento anterior encerrar, repita o procedimento com o segunte comando:
 

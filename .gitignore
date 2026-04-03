@@ -1,6 +1,6 @@
 .history
 __pycache__
-logs/random*
+logs/
 backups
 data/MNIST/
 flower/reports

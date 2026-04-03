@@ -10,6 +10,8 @@ A estrutura deste arquivo é a seguinte:
 
 O repositório está organizado da seguinte forma
 
+* `install`: scripts de instalação do Docker, conforme será explorado na seção de [Instalação](#instalação).
+
 * `wf_solver`: biblioteca Python instalável com PIP que implementa a solução do problema de otimização proposto no artigo.
 
 * `sample_problems`: soluciona alguns problemas de otimziação com parâmetros pré-definidos e ajustáveis pelo desenvolvedor, auxiliando na validação e na criação de intuição sobre o problema, conforme será discutido na seção de [Teste mínimo](#teste-mínimo) deste tutorial
@@ -36,14 +38,12 @@ Os autores reivindicam os seguintes selos científicos para este artefato:
 
 Os requisitos do ambiente de experimentação são os seguintes:
 
-* Sistema Operacional: Debian 12 ou Ubuntu 24
-* CPU mínima: 4 núcleos. 2 GHz
+* Sistema Operacional: Debian 11 pra frente ou Ubuntu 22.04 pra frente
+* CPU mínima: 4 núcleos de 2 GHz
 * RAM mínima: 4 GB 
-* Espaço em disco mínimo : 50 GB
+* Espaço em disco mínimo : aproximadamente 50 GB
 
-As dependências são as seguintes:
-
-Caso ainda não tenha instalado o Docker Engine (com o Docker Compose), clique [aqui](https://docs.docker.com/engine/install/) para instalar. A versão mínima exigida é a 29.1.3.
+A única dependência é o Docker Engine (com o Docker Compose). Veja mais sobre esse processo de instalação na seção de [Instalação](#instalação).
 
 # Preocupações com segurança
 
@@ -51,7 +51,27 @@ A execução dos experimentos em contêineres **não apresenta riscos de seguran
 
 # Instalação
 
-Após ter instalado o Docker engine, conforme indicado na parte de infromações básicas, basta seguir os passos a seguir. Todos os procedimentos são realziados usando contêineres Docker, evitando instalações complicadas. 
+Caso esteja no **Debian**, instale o Docker usando os seguintes comandos
+
+```bash
+cd install
+chmod +x install_docker_debian.sh
+./install_docker_debian.sh
+cd ..
+```
+
+Caso esteja no **Ubuntu**, instale o Docker usando os seguintes comandos
+
+```bash
+cd install
+chmod +x install_docker_ubuntu.sh
+./install_docker_ubuntu.sh
+cd ..
+```
+
+O comando não continua a instalação se ele verificar que já há uma versão adequada do Docker na máquina.
+
+Após ter instalado o Docker engine, basta seguir os passos a seguir. Todos os procedimentos são realziados usando contêineres Docker, evitando instalações complicadas. 
 
 # Teste mínimo 
 
@@ -147,7 +167,7 @@ cd sample_problems
 bash config_and_run.sh
 ```
 
-A máquina irá executar apenas 5 repetições de um problema de otimização. O problema em questão possui parâmetros gerados aleatoriamente. O objetivo é apenas **ilustrar** como os resultados do artigo foram gerados.
+A máquina irá executar **apenas 5 repetições (para gilizar o processo)** de um problema de otimização. O problema em questão possui parâmetros gerados aleatoriamente **da mesma forma que foi feito no artigo**. 
 
 Resumo dos logs esperados (apenas últimas linhas):
 
@@ -191,25 +211,44 @@ Gap = 0.3693496345155407 +- 0.043304968694702656s
 Energy std. dev. = 11282.148916719874 +- 806.8161965918118s
 ```
 
-Para finalizar, volte para a raiz do repositório: `cd ..`
+Volte para a raiz do repositório:
 
+```bash
+cd ..
+```
 
- ## Reivindicação 2 - Reprodução dos resultados dos problemas aleatórios, conforme experimento 1 do artigo
+A seguir, vamos fazer a reprodução dos resultados dos problemas aleatórios, conforme experimento 1 do artigo:
 
 ```bash
 cd results_random_problems
 bash config_and_run.sh
 ```
-Intel(R) Xeon(R) Gold 5416SIntel(R) Xeon(R) Gold 5416S
-Este comando irá apenas gerar no diretório `results_random_problems/figures` 4 arquivos de imagem (`.png`) com os resultados do Experimento 1 do artigo. Apesar desses gráficos do artigo terem sido obtidos utilizando os scripts em `random_problems` **neste tutorial, apenas poucas rodadas foram executadas**. Volte para a raiz do repositório: `cd ..`
 
- ## Reivindicação 3 - Geração dos dados para o FL
+Este comando irá apenas gerar no diretório `results_random_problems/figures` 4 arquivos de imagem (`.png`) com os resultados do Experimento 1 do artigo. Apesar desses gráficos do artigo terem sido obtidos utilizando os scripts em `random_problems`.
 
-Acesse o diretório `cd data` 
+Volte para a raiz do repositório:
+
+```bash
+cd ..
+```
+
+ ## Reivindicação 2 - Integração com o Flower
+ 
+Vamos começar com a geração dos dados para o FL
+
+Acesse o diretório `data`:
+
+```bash
+cd data
+```
 
 Dentro deste diretório, há um arquivo chamado `config.ini` que define como o conjunto de dados MNIST será particionado entre N clientes do aprendizado federado. Ademais, o arquivo também define a fração de treino e teste e o tamanho do batch. Para reproduzir os experimentos do artigo, mantenha as configurações padrão.
 
-Execute `bash config_and_run.sh`
+Execute 
+
+```bash
+bash config_and_run.sh
+```
 
 Este script cria um diretório chamado `MNIST` com os dados com a seguinte estrutura:
 
@@ -252,10 +291,15 @@ Este script cria um diretório chamado `MNIST` com os dados com a seguinte estru
 
 O arquivo `client_X_trainloader.pth` contém os batches usados para o treinamento pelo cliente identificado pelo número `X` 
 
-A próxima etapa utilizará esses dados. Execute `cd ..` para voltar à raiz do repositório 
+A próxima etapa utilizará esses dados.
 
-## Alerta sobre próxima etapa
+Volte para a raiz do repositório:
 
+```bash
+cd ..
+```
+
+**ALERTA**
 
 O script seguinte irá criar containeres na máquina para executar o aprendizado federado com **5 clientes (ao invés dos 10 do artigo)** e um servidor. 
 
@@ -267,9 +311,8 @@ Mesmo com as reduções na escala do experimento, **cada repetição pode demora
 
 Além disso, o uso de recursos da máquina pode ultrapassar 400% de uso de CPU e uso de quase 4GB de memória.  
 
-## Reivindicação 4 - Integração com o Flower
 
-Esta etapa utiliza os dados gerados na etapa anterior
+Esta etapa utiliza os dados gerados na etapa anterior:
 
 ```bash
 cd flower
@@ -397,13 +440,28 @@ bash config_and_run.sh 50 0
 
 Nesse caso, o servidor distribui igualmente 50 épocas entre os clientes, de forma que cada um irá treinar por exatas 10 épocas. Os logs, nesse caso, serão gerados em `logs/fixed_50_variable_0`.
 
-Fim da parte 5. `cd ..`
+Volte para a raiz do repositório:
 
- ## Reivindicação 5 - Reprodução dos resultados da integração com o Flower, conforme experimento 2 do artigo
+```bash
+cd ..
+```
 
-Acesse `cd results_flower` e execute `bash config_and_run.sh`. Este script pega os logs gerados na parte 5 e gera gráficos similares aos do artigo no diretório `figures`
+Vamos agora gerar os gráficos deste experimento:
+
+```bash
+cd results_flower
+bash config_and_run.sh
+```
+
+Este script pega os logs gerados na parte 5 e gera gráficos similares aos do artigo no diretório `figures`. Para evitar uma barra de erro muito grande, **utiliza-se um intervalo de confiança menor (50%) uma vez que foram feitas muito poucas repetições**.
 
 Claro que os resultados serão diferentes pelo fato de que o treinamento foi feito com menos rodadas globais, além de que foram feitas menos repetições, modificando a significância estatística.
+
+Exemplos das figuras geradas em `results_flower/figures`:
+
+![alt text](example_figs/acc_x_fairness.png)
+
+![alt text](example_figs/entropy_plot.png)
 
 # LICENSE 
 

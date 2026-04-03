@@ -2,7 +2,6 @@ import pickle
 import os
 from matplotlib import pyplot as plt
 from matplotlib import patches 
-from utils import print_dict_struct
 from pprint import pprint
 
 def plot_entropy(scenario_params:dict, save_path:str):
@@ -18,7 +17,7 @@ def plot_entropy(scenario_params:dict, save_path:str):
         rounds = [ x[0] for x in sequence ]
         entropies = [ x[1] for x in sequence ]
 
-        plt.errorbar(rounds, entropies, yerr=error, label=name, color=color, capsize=3)
+        plt.errorbar(rounds[1:], entropies[1:], yerr=error[1:], label=name, color=color, capsize=3)
 
     plt.xlabel("Rodada")
     plt.ylabel("Entropia Normalizada")
@@ -32,7 +31,7 @@ def plot_entropy(scenario_params:dict, save_path:str):
 if __name__ == "__main__":
     my_dir = os.path.dirname(__file__)
     
-    with open(os.path.join(my_dir,"results.pkl"),'rb') as f:
+    with open(os.path.join(my_dir,"processed/results.pkl"),'rb') as f:
         d = pickle.load(f)
 
     scenario_params = {
@@ -68,4 +67,4 @@ if __name__ == "__main__":
         ]
 
     # Call a function that plots one line with error bars for each scenario
-    plot_entropy(scenario_params, save_path=os.path.join(my_dir,"entropy_plot.png"))
+    plot_entropy(scenario_params, save_path=os.path.join(my_dir,"figures/entropy_plot.png"))

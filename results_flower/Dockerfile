@@ -2,7 +2,7 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-RUN pip install --no-cache-dir matplotlib numpy pandas
+RUN pip install --no-cache-dir matplotlib numpy pandas scipy
 
 COPY scripts/*.py ./
 COPY guiaraujo.mplstyle ./

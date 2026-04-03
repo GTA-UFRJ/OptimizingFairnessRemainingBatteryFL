@@ -1,13 +1,12 @@
 import json
 import os
 import numpy as np
-from utils import print_dict_struct
 from scipy import stats
 import pickle
 
 def get_avg_and_error(array):
     array = np.array(array)
-    return np.mean(array), stats.sem(array) * stats.t.ppf((1+0.95)/2., len(array)-1)  
+    return np.mean(array), stats.sem(array) * stats.t.ppf((1+0.5)/2., len(array)-1)  
 
 def process_scenario(scenario_info:dict):
     scenario_results = {
@@ -52,13 +51,13 @@ def process_scenario(scenario_info:dict):
 if __name__ == "__main__":
     my_dir = os.path.dirname(__file__)
     
-    with open(os.path.join(my_dir,"results.json"),'r') as f:
+    with open(os.path.join(my_dir,"processed/results.json"),'r') as f:
         d = json.load(f)
 
     results = {}
     for scenario, scenario_info in d.items():
         results[scenario] = process_scenario(scenario_info)
-    print_dict_struct(results)
+    #print_dict_struct(results)
 
-    with open(os.path.join(my_dir,"results.pkl"),'wb') as f:
+    with open(os.path.join(my_dir,"processed/results.pkl"),'wb') as f:
         pickle.dump(results,f)

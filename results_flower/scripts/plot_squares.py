@@ -2,7 +2,6 @@ import pickle
 import os
 from matplotlib import pyplot as plt
 from matplotlib import patches 
-from utils import print_dict_struct
 
 def get_square(x,y,color):     
     x_left = x[0] - x[1]
@@ -49,7 +48,7 @@ def plot_squares(scenario_params:dict,lims, path_to_save):
 if __name__ == "__main__":
     my_dir = os.path.dirname(__file__)
     
-    with open(os.path.join(my_dir,"results.pkl"),'rb') as f:
+    with open(os.path.join(my_dir,"processed/results.pkl"),'rb') as f:
         d = pickle.load(f)
 
     scenario_params = {
@@ -86,4 +85,4 @@ if __name__ == "__main__":
         if l["ymin"] < lims["ymin"] : lims["ymin"] = l["ymin"]
         if l["ymax"] > lims["ymax"] : lims["ymax"] = l["ymax"]
 
-    plot_squares(scenario_params,lims, os.path.join(my_dir,"acc_x_fairness.png"))
+    plot_squares(scenario_params,lims, os.path.join(my_dir,"figures/acc_x_fairness.png"))

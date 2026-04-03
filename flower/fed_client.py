@@ -41,6 +41,7 @@ class FlowerClient(NumPyClient):
         with open(f"initial_clients/client_{client_id}.json",'w') as f:
             json.dump(self.report,f,indent=4)
         self.report = self.report
+        print(f"battery_mAh:{battery_mAh}")
 
     def update_client_report(self):
         """Atualiza o estado da bateria após o treino (substitui o create_client_report)"""

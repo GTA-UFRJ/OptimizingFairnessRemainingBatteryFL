@@ -4,15 +4,25 @@ Manual de artefatos para o código documentado referente ao artigo aceito no SBR
 
 # Estrutura do readme.md
 
+A estrutura deste arquivo é a seguinte:
+
+
+
 O repositório está organizado da seguinte forma
 
 * `wf_solver`: biblioteca Python instalável com PIP que implementa a solução do problema de otimização proposto no artigo.
-* `sample_problems`: soluciona alguns problemas de otimziação com parâmetros pré-definidos e ajustáveis pelo desenvolvedor, auxiliando na validação e na criação de intuição sobre o problema, conforme será discutido na [Parte 1](#teste-mínimo) deste tutorial
-* `random_problems`: cria problemas aleatórios e os resolve, gerando métricas análogas às que foram incluídas no Experimento 1 descrito no artigo, mas em menor escala, conforme  será discutido na [Parte 2](#reivindicação-1---solução-de-múltiplos-problemas-com-parâmetros-aleatórios) deste tutorial
-* `results_random_problems`: plota as figuras do artigo, de acordo com métricas printadas na execução do `random_problems`, conforme será discutido na [Parte 3](#reivindicação-2---reprodução-dos-resultados-dos-problemas-aleatórios-conforme-experimento-1-do-artigo) deste tutorial
-* `data`: geração dos dados para o treinamento de aprendizado federado com MNIST, conforme será discutido na [Parte 4](#reivindicação-3---geração-dos-dados-para-o-fl) deste tutorial
-* `flower`: executa treinamentos do Flower com a proposta do artigo, gerando resultados análogos, mas em menor escala, conforme  será discutido na [Parte 5](#reivindicação-4---integração-com-o-flower) deste tutorial
-* `results_flower`: plota as figuras do artigo, de acordo com métricas printadas na execução do `flower`, conforme será discutido na [Parte 6](#reivindicação-5---reprodução-dos-resultados-da-integração-com-o-flower-conforme-experimento-2-do-artigo) deste tutorial
+
+* `sample_problems`: soluciona alguns problemas de otimziação com parâmetros pré-definidos e ajustáveis pelo desenvolvedor, auxiliando na validação e na criação de intuição sobre o problema, conforme será discutido na seção de [Teste mínimo](#teste-mínimo) deste tutorial
+
+* `random_problems`: cria problemas aleatórios e os resolve, gerando métricas análogas às que foram incluídas no Experimento 1 descrito no artigo, mas em menor escala, conforme  será discutido na [Reivindicação 1](#reivindicação-1---solução-de-múltiplos-problemas-com-parâmetros-aleatórios) dos artefatos
+
+* `results_random_problems`: plota as figuras do artigo, de acordo com métricas printadas na execução do `random_problems`, conforme será discutido na [Reivindicação 1](##reivindicação-1---solução-de-múltiplos-problemas-com-parâmetros-aleatórios)
+
+* `data`: geração dos dados para o treinamento de aprendizado federado com MNIST, conforme será discutido na [Reivindicação 2](#reivindicação-2---integração-com-o-flower)
+
+* `flower`: executa treinamentos do Flower com a proposta do artigo, gerando resultados análogos, mas em menor escala, conforme  será discutido na [Reivindicação 2](#reivindicação-2---integração-com-o-flower) deste tutorial
+
+* `results_flower`: plota as figuras do artigo, de acordo com métricas printadas na execução do `flower`, conforme será discutido na [Reivindicação 2](#reivindicação-2---integração-com-o-flower) deste tutorial
 
 # Selos Considerados
 

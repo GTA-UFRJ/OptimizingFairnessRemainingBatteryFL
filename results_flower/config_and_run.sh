@@ -8,4 +8,4 @@ cp -r ../flower/logs .
 rm -rf --interactive=never processed
 mkdir processed
 
-sudo docker compose -f compose.yaml up --build
+sudo docker compose -f compose.yaml up --build --force-recreate --remove-orphans 

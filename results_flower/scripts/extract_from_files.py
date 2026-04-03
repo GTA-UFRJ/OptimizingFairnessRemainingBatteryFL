@@ -4,7 +4,7 @@ import math
 import json
 import string
 import numpy as np
-from utils import print_dict_struct
+from pathlib import Path
 
 def extract_val_accuracy(filepath):
     with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
@@ -43,6 +43,8 @@ def extract_energies(scenario_dir, run_id, client_id):
             match = re.search(r'"battery_mAh":\s*([0-9]+)', line)
             if match:
                 capacity = int(match.group(1))  # guarda o último valor encontrado
+            else:
+                capacity = 2050
     return [ capacity*1e-3*3600*3.7*soc/100 for soc in values ]
 
 def extract_epochs_entropy(scenario_dir, run_id, num_clients, num_rounds):
@@ -116,11 +118,12 @@ def analyse_run(scenario_dir, run_id, num_clients):
     }
 
 def analyse_scenario(scenario_dir):
+    scenario_dir = Path(scenario_dir)
     num_servers = len([f for f in scenario_dir.rglob('*server*')   if f.is_file()])
     num_clients = len([f for f in scenario_dir.rglob('*1_client*')   if f.is_file()])
 
     reptition_to_result_map = { run_id : analyse_run(scenario_dir, run_id, num_clients) 
-                                for run_id in range(num_servers) }
+                                for run_id in range(1,num_servers+1) }
     
     return {k:v for k,v in reptition_to_result_map.items() if k is not None}
         
@@ -139,7 +142,7 @@ if __name__ == "__main__":
     for scenario in scenarios_list:
         scenarios_to_results_map[scenario] = analyse_scenario(os.path.join(results_dir,scenario))
 
-    print_dict_struct(scenarios_to_results_map, save=os.path.join(my_dir,"results/results_struct"))
+    #print_dict_struct(scenarios_to_results_map, save=os.path.join(my_dir,"results/results_struct"))
 
     with open(os.path.join(my_dir,"processed/results.json"),"w") as f:
         json.dump(scenarios_to_results_map,f, indent=4)

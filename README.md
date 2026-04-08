@@ -6,7 +6,16 @@ Manual de artefatos para o código documentado referente ao artigo aceito no SBR
 
 A estrutura deste arquivo é a seguinte:
 
-
+* [Estrutura do readme.md](#estrutura-do-readmemd)
+* [Selos Considerados](#selos-considerados)
+* [Informações básicas](#informações-básicas)
+* [Preocupações com segurança](#preocupações-com-segurança)
+* [Instalação](#instalação)
+* [Teste mínimo](#teste-mínimo)
+* [Experimentos](#experimentos)
+  * [Reivindicação 1 - Solução de múltiplos problemas com parâmetros aleatórios](#reivindicação-1---solução-de-múltiplos-problemas-com-parâmetros-aleatórios)
+  * [Reivindicação 2 - Integração com o Flower](#reivindicação-2---integração-com-o-flower)
+* [LICENSE](#license)
 
 O repositório está organizado da seguinte forma
 

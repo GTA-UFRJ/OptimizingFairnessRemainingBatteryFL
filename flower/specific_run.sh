@@ -3,15 +3,15 @@
 # 1. Validação de segurança: exige os dois primeiros argumentos
 if [ -z "$1" ] || [ -z "$2" ]; then
     echo "Erro: Faltam argumentos!"
-    echo "Uso: ./config_and_run.sh <FIXED_ROUNDS> <VARIABLE_ROUNDS> [NUM_RUNS]"
-    echo "Exemplo: ./config_and_run.sh 2 8 5"
+    echo "Uso: ./specific_run.sh <FIXED_ROUNDS> <VARIABLE_ROUNDS> <RUN_ID>"
+    echo "Exemplo: ./specific_rin.sh 2 8 1"
     exit 1
 fi
 
 # 2. Definição de Variáveis (Substitui o .env)
 FIXED_ROUNDS=$1
 VARIABLE_ROUNDS=$2
-NUM_RUNS="${3:-3}" # Se $3 for vazio, assume 3
+RUN_ID=$3
 NUM_CLIENTS=5     # Variável fixa
 
 LOGDIR="logs/fixed_${FIXED_ROUNDS}_variable_${VARIABLE_ROUNDS}"
@@ -31,7 +31,7 @@ cp -r ../data/MNIST .
 export NUM_CLIENTS=$NUM_CLIENTS
 export FIXED_ROUNDS=$FIXED_ROUNDS
 export VARIABLE_ROUNDS=$VARIABLE_ROUNDS
-export RUN=1
+export RUN=$RUN_ID
 
 # Derruba qualquer resquício antes de começar
 sudo -E docker compose -f compose.yaml down --remove-orphans
@@ -49,29 +49,25 @@ fi
 
 echo "Build concluído com sucesso!"
 
-# 5. Loop de Execução
-for i in $(seq 1 $NUM_RUNS); do
-    # Exporta o RUN da iteração atual
-    export RUN=$i
-    
-    echo "========================================"
-    echo " Iniciando Experimento $i de $NUM_RUNS"
-    echo "========================================"
+export RUN=$RUN_ID
 
-    # Sobe os containers SEM a flag --build
-    sudo -E docker compose -f compose.yaml up --force-recreate --remove-orphans -d
+echo "========================================"
+echo " Iniciando Experimento $RUN_ID          "
+echo "========================================"
 
-    # Espera o container do servidor (flower_server) terminar de rodar
-    echo "Aguardando o servidor finalizar a execução do experimento $i..."
-    sudo docker wait flower_server
-    
-    echo " "
-    echo "--> Visualizando log do servidor (Execução $i):"
-    cat "$LOGDIR/${i}_server.logs"
-    
-    # O comando down avalia o compose.yaml, logo, também precisa do sudo -E
-    sudo -E docker compose -f compose.yaml down --remove-orphans
-done
+# Sobe os containers SEM a flag --build
+sudo -E docker compose -f compose.yaml up --force-recreate --remove-orphans -d
+
+# Espera o container do servidor (flower_server) terminar de rodar
+echo "Aguardando o servidor finalizar a execução do experimento"
+sudo docker wait flower_server
+
+echo " "
+echo "--> Visualizando log do servidor (Execução $RUN_ID):"
+cat "$LOGDIR/${RUN_ID}_server.logs"
+
+# O comando down avalia o compose.yaml, logo, também precisa do sudo -E
+sudo -E docker compose -f compose.yaml down --remove-orphans
 
 # 6. Limpeza final
 rm -rf ./wf_solver

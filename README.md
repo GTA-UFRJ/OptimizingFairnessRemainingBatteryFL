@@ -15,6 +15,7 @@ A estrutura deste arquivo é a seguinte:
 * [Experimentos](#experimentos)
   * [Reivindicação 1 - Solução de múltiplos problemas com parâmetros aleatórios](#reivindicação-1---solução-de-múltiplos-problemas-com-parâmetros-aleatórios)
   * [Reivindicação 2 - Integração com o Flower](#reivindicação-2---integração-com-o-flower)
+* [Troubleshooting](#troubleshooting)
 * [LICENSE](#license)
 
 O repositório está organizado da seguinte forma
@@ -172,11 +173,11 @@ Para finalizar, volte para a raiz do repositório: `cd ..`
 Execute os seguintes comandos
 
 ```bash
-cd sample_problems
+cd random_problems
 bash config_and_run.sh
 ```
 
-A máquina irá executar **apenas 5 repetições (para gilizar o processo)** de um problema de otimização. O problema em questão possui parâmetros gerados aleatoriamente **da mesma forma que foi feito no artigo**. 
+A máquina irá executar **apenas 5 repetições (para agilizar o processo)** de um problema de otimização. O problema em questão possui parâmetros gerados aleatoriamente **da mesma forma que foi feito no artigo**. 
 
 Resumo dos logs esperados (apenas últimas linhas):
 
@@ -233,7 +234,7 @@ cd results_random_problems
 bash config_and_run.sh
 ```
 
-Este comando irá apenas gerar no diretório `results_random_problems/figures` 4 arquivos de imagem (`.png`) com os resultados do Experimento 1 do artigo. Apesar desses gráficos do artigo terem sido obtidos utilizando os scripts em `random_problems`.
+Este comando irá apenas gerar no diretório `results_random_problems/figures` 4 arquivos de imagem (`.png`) com os resultados do Experimento 1 do artigo. Estes gráficos são construídos usando resultados previamente obtidos pelo autor executando `random_problems` após muito mais repetições.
 
 Volte para a raiz do repositório:
 
@@ -312,14 +313,13 @@ cd ..
 
 O script seguinte irá criar containeres na máquina para executar o aprendizado federado com **5 clientes (ao invés dos 10 do artigo)** e um servidor. 
 
-O experimento será repetido **3 vezes** para garantir significância estatística. No artigo, o experimento é repetido mais vezes. Entretanto, o objetivo deste artefato é apenas demonstrar a funcionalidade. Se quiser mudar o número de rodadas, basta passar um terceiro argumento (opicional) para o comando.
+O experimento será repetido **3 vezes** para garantir significância estatística. No artigo, o experimento é repetido mais vezes. Entretanto, o objetivo deste artefato é apenas demonstrar a funcionalidade. O número de rodadas pode ser modificado passando um terceiro argumento (opicional) para o comando `bash config_and_run.sh ...` (apresentado abaixo).
 
 O experimento utiliza **apenas 5 rodadas globais ao invés de 10** para agilizar o processo. A learning rate é maior para garantir a convergência em menos rodadas. Dessa forma, é compreensível que os resultados obtidos aqui **não serão idênticos aos do artigo**, mas podem ser ajustados para execuções mais longas, se necessário. 
 
 Mesmo com as reduções na escala do experimento, **cada repetição pode demorar uns 10 minutos (totalizando uns 30 minutos)** 
 
-Além disso, o uso de recursos da máquina pode ultrapassar 400% de uso de CPU e uso de quase 4GB de memória.  
-
+Além disso, o uso de recursos da máquina pode ultrapassar 400% de uso de CPU, além de consumir quase 4GB de memória.  
 
 Esta etapa utiliza os dados gerados na etapa anterior:
 
@@ -439,7 +439,7 @@ INFO :
 ...
 ```
 
-Você pode olhar os logs em `logs/fixed_0_variable_50` para acompanhar o progresso do treinamento.
+Você pode olhar os logs em `flower/logs/fixed_0_variable_50` para acompanhar o progresso do treinamento.
 
 Após o treinamento anterior encerrar, repita o procedimento com o segunte comando:
 
@@ -447,7 +447,7 @@ Após o treinamento anterior encerrar, repita o procedimento com o segunte coman
 bash config_and_run.sh 50 0
 ```
 
-Nesse caso, o servidor distribui igualmente 50 épocas entre os clientes, de forma que cada um irá treinar por exatas 10 épocas. Os logs, nesse caso, serão gerados em `logs/fixed_50_variable_0`.
+Nesse caso, o servidor distribui igualmente 50 épocas entre os clientes, de forma que cada um irá treinar por exatas 10 épocas. Os logs, nesse caso, serão gerados em `flower/logs/fixed_50_variable_0`.
 
 Volte para a raiz do repositório:
 
@@ -462,7 +462,7 @@ cd results_flower
 bash config_and_run.sh
 ```
 
-Este script pega os logs gerados na parte 5 e gera gráficos similares aos do artigo no diretório `figures`. Para evitar uma barra de erro muito grande, **utiliza-se um intervalo de confiança menor (50%) uma vez que foram feitas muito poucas repetições**.
+Este script lê os logs gerados nos experimentos acima e os copia temporariamente para a pasta `results_flower/logs`. Em seguida, ele gera gráficos similares aos do artigo no diretório `results_flower/figures`. Para evitar uma barra de erro muito grande, **utiliza-se um intervalo de confiança menor (50%) uma vez que foram feitas muito poucas repetições**.
 
 Claro que os resultados serão diferentes pelo fato de que o treinamento foi feito com menos rodadas globais, além de que foram feitas menos repetições, modificando a significância estatística.
 
@@ -471,6 +471,16 @@ Exemplos das figuras geradas em `results_flower/figures`:
 ![alt text](example_figs/acc_x_fairness.png)
 
 ![alt text](example_figs/entropy_plot.png)
+
+# Troubleshooting 
+
+Esta seção auxilia o usuário a resolver problemas comuns na execução dos experimentos.
+
+* Timeout no download do PyTorch: o PyTorch é um pacote volumoso. Em conexões instáveis, o `pip` pode encerrar a conexão antes de concluir o download. O Dockerfile já inclui um timeout estendido, mas você pode forçar um tempo maior ou usar a rede do host durante o build modificando os arquivos `flower/client.dockerfile` e `flower/server.dockerfile`, na linha onde está escrito `--default-timeout`.
+
+* Falhas de DNS ou Rede no Docker: em algumas redes (especialmente corporativas ou acadêmicas), o Docker pode não conseguir resolver nomes de domínio para baixar pacotes do repositório oficial do Debian ou do PyPI. Force o uso de DNS públicos (como os do Google) editando o arquivo /etc/docker/daemon.json no seu sistema host: `{"dns":["8.8.8.8", "1.1.1.1"]}`. em seguida, reinicie o serviço: `sudo systemctl restart docker`.
+
+* Reexecução parcial dos experimentos com Flower: se der um problema durante a execução dos experimentos especificados na reivindicação 2, existe uma forma de contornar esse problema. Por exemplo, se o código executou corretamente as repetições 2 e 3 mas não a repetição 1, os arquivos referentes à essas rodadas não estarão presentes em `flower/logs/fixed_0_variable_50`. Você encontrará arquivos `2_server.logs` e `3_server.logs`, mas não o arquivo `1_server.logs`, por exemplo (mesma coisa para os arquivos dos clientes). Existe um script para gerar os arquivos referentes a uma execução do experimento em `flower/specific_run.sh`. Para gerar os arquivos referentes à repetição 1 do cenário `fixed_0_variable_50`, acesse o diretório e execute `bash specific_run.sh 0 50 1`.
 
 # LICENSE 
 
